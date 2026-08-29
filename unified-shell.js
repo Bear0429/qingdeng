@@ -152,7 +152,7 @@
       return;
     }
 
-    const targetUrl = new URL(sceneValue, window.location.href);
+    const targetUrl = new URL("/" + sceneValue, window.location.origin);
 
     if (!isLocalHtml(targetUrl.href) || isIndexPage(targetUrl.href)) {
       closeScene({ updateHistory: false });
