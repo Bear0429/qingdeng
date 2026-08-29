@@ -1,0 +1,376 @@
+:root {
+  color: #efe4cb;
+  background: #090b0b;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.panorama-page {
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #090b0b;
+}
+
+.panorama-page {
+  min-height: 100vh;
+  background: #090b0b;
+}
+
+.panorama-header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 76px;
+  padding: 14px clamp(18px, 3vw, 48px);
+  border-bottom: 1px solid rgba(202, 165, 89, 0.32);
+  background: linear-gradient(180deg, rgba(8, 25, 28, 0.94), rgba(8, 18, 20, 0.62));
+  backdrop-filter: blur(10px);
+}
+
+.panorama-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.panorama-seal {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(205, 168, 94, 0.68);
+  border-radius: 50%;
+  color: #d7b36e;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.25rem;
+}
+
+.panorama-brand small,
+.panorama-brand strong {
+  display: block;
+}
+
+.panorama-brand small {
+  color: rgba(237, 224, 193, 0.7);
+  font-size: 0.73rem;
+  letter-spacing: 0.16em;
+}
+
+.panorama-brand strong {
+  margin-top: 2px;
+  color: #f0e1bf;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.panorama-back {
+  padding: 9px 14px;
+  border: 1px solid rgba(216, 181, 106, 0.38);
+  border-radius: 3px;
+  color: #efe4cb;
+  background: rgba(10, 26, 29, 0.64);
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.panorama-back:hover,
+.panorama-back:focus-visible {
+  color: #fff2d4;
+  background: rgba(34, 70, 71, 0.82);
+}
+
+.panorama-stage {
+  width: 100vw;
+  height: 100vh;
+}
+
+.panorama-stage {
+  position: relative;
+  overflow: hidden;
+  background: #060708;
+}
+
+.panorama-vignette {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(6, 8, 9, 0.36), transparent 20%, transparent 76%, rgba(5, 7, 7, 0.58)),
+    radial-gradient(ellipse at center, transparent 42%, rgba(2, 4, 4, 0.46) 100%);
+}
+
+.panorama-note {
+  position: absolute;
+  z-index: 3;
+  right: clamp(18px, 3vw, 48px);
+  bottom: 26px;
+  display: grid;
+  gap: 3px;
+  color: rgba(243, 228, 196, 0.78);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+  text-align: right;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.panorama-note span:last-child {
+  color: rgba(222, 189, 123, 0.76);
+  font-size: 0.68rem;
+}
+
+.panorama-fallback {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  overflow: hidden;
+  padding: 24px;
+  color: #ead9b7;
+  outline: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: #090b0b;
+  background-image: url("./assets/panoramas/library-panorama.png");
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.panorama-fallback.is-dragging {
+  cursor: grabbing;
+}
+
+.panorama-fallback[hidden] {
+  display: none;
+}
+
+.panorama-fallback img {
+  display: none;
+}
+
+.panorama-fallback p {
+  position: absolute;
+  right: clamp(18px, 3vw, 48px);
+  bottom: 26px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(211, 173, 98, 0.34);
+  color: rgba(243, 228, 196, 0.84);
+  background: rgba(8, 18, 19, 0.66);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.fallback-door {
+  position: absolute;
+  z-index: 1;
+  width: clamp(54px, 5vw, 82px);
+  height: clamp(94px, 11vh, 146px);
+  transform: translate(-50%, -50%);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  background: rgba(173, 117, 50, 0.02);
+  touch-action: manipulation;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.fallback-door::before {
+  position: absolute;
+  inset: -12px;
+  content: "";
+}
+
+.fallback-door:hover,
+.fallback-door:focus-visible {
+  border-color: rgba(242, 202, 119, 0.82);
+  background: rgba(174, 114, 46, 0.18);
+  box-shadow: 0 0 18px rgba(203, 142, 65, 0.45);
+  outline: 0;
+}
+
+.door-prompt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 5, 5, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.door-prompt {
+  position: relative;
+  width: min(480px, 92vw);
+  padding: 36px 34px 30px;
+  border: 1px solid rgba(205, 161, 84, 0.62);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.6), inset 0 0 45px rgba(74, 45, 16, 0.08);
+  color: #50402f;
+  background:
+    linear-gradient(rgba(247, 235, 207, 0.95), rgba(232, 214, 177, 0.96)),
+    repeating-linear-gradient(0deg, transparent 0 7px, rgba(99, 73, 37, 0.04) 8px);
+  text-align: center;
+  animation: door-prompt-reveal 180ms ease-out both;
+}
+
+.door-prompt::before,
+.door-prompt::after {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  width: 5px;
+  border-block: 1px solid rgba(139, 91, 37, 0.38);
+  content: "";
+}
+
+.door-prompt::before { left: 12px; border-left: 1px solid rgba(139, 91, 37, 0.38); }
+.door-prompt::after { right: 12px; border-right: 1px solid rgba(139, 91, 37, 0.38); }
+
+.door-prompt-seal {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  display: grid;
+  width: 46px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 2px solid rgba(139, 36, 28, 0.62);
+  color: #8b2c24;
+  font-family: "STKaiti", "KaiTi", serif;
+  transform: rotate(7deg);
+}
+
+.door-prompt-kicker {
+  margin: 0 0 12px;
+  color: #91703f;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+}
+
+.door-prompt h2 {
+  margin: 0 52px 18px;
+  color: #22201b;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: clamp(1.65rem, 4vw, 2.2rem);
+  letter-spacing: 0.08em;
+}
+
+.door-prompt > p:not(.door-prompt-kicker) {
+  margin: 0;
+  line-height: 1.9;
+}
+
+.door-prompt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.door-prompt-actions button {
+  min-width: 112px;
+  padding: 10px 18px;
+  border: 1px solid #9e7138;
+  color: #533c21;
+  background: rgba(255, 248, 228, 0.64);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.08em;
+}
+
+.door-prompt-actions .door-prompt-confirm {
+  color: #f2e3bc;
+  background: #153f3d;
+}
+
+.door-prompt-actions button:hover,
+.door-prompt-actions button:focus-visible {
+  box-shadow: 0 0 0 2px rgba(201, 153, 77, 0.28);
+  outline: 0;
+}
+
+@keyframes door-prompt-reveal {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .panorama-header {
+    min-height: 64px;
+    padding: 10px 14px;
+  }
+
+  .panorama-brand strong {
+    font-size: 1.08rem;
+  }
+
+  .panorama-brand small,
+  .panorama-note {
+    display: none;
+  }
+
+  .panorama-seal {
+    width: 36px;
+    height: 36px;
+  }
+
+  .panorama-back {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .door-prompt {
+    padding: 32px 22px 24px;
+  }
+
+  .door-prompt h2 {
+    margin-inline: 42px;
+  }
+
+  .door-prompt-actions {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panorama-back {
+    transition: none;
+  }
+}

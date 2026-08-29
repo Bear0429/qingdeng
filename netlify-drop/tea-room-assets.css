@@ -1,0 +1,40 @@
+/* Tea room artwork layer. Kept separate so later forum content stays editable. */
+body.tea-room-assets-ready {
+  background: #eee5d2 url("./assets/tea-room/tea-room-background.png?v=20260803") center top / cover no-repeat fixed !important;
+}
+
+body.tea-room-assets-ready main,
+body.tea-room-assets-ready .forum-page,
+body.tea-room-assets-ready .forum-shell,
+body.tea-room-assets-ready .forum-layout,
+body.tea-room-assets-ready .forum-content {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body.tea-room-assets-ready [data-tea-art="post"],
+body.tea-room-assets-ready [data-tea-art="rules"],
+body.tea-room-assets-ready [data-tea-art="tags"] {
+  background-color: rgba(250, 245, 231, 0.72) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  border-color: rgba(154, 119, 69, 0.32) !important;
+  box-shadow: 0 8px 24px rgba(74, 52, 24, 0.08);
+}
+
+body.tea-room-assets-ready [data-tea-art="post"] {
+  background-image: url("./assets/tea-room/forum-post-card.png?v=20260803") !important;
+}
+
+body.tea-room-assets-ready [data-tea-art="rules"] {
+  background-image: url("./assets/tea-room/forum-rules-board.png?v=20260803") !important;
+}
+
+body.tea-room-assets-ready [data-tea-art="tags"] {
+  background-image: url("./assets/tea-room/forum-tags-board.png?v=20260803") !important;
+}
+
+@media (max-width: 720px) {
+  body.tea-room-assets-ready { background-attachment: scroll !important; }
+}

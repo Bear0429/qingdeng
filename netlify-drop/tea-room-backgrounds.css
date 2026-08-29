@@ -1,0 +1,86 @@
+:root.tea-room-skin-page {
+  background: #eee5d2 url("./assets/tea-room/tea-room-background.png") center / cover fixed no-repeat;
+}
+
+:root.tea-room-skin-page body {
+  background: transparent;
+}
+
+.tea-room-skin-intro,
+.tea-room-skin-post,
+.tea-room-skin-rules,
+.tea-room-skin-tags {
+  box-sizing: border-box;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.tea-room-skin-intro {
+  background-color: #f5eedf !important;
+  background-image: linear-gradient(rgba(250, 246, 236, 0.18), rgba(250, 246, 236, 0.18)), url("./assets/tea-room/tea-room-background.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border: 1px solid rgba(176, 139, 82, 0.5) !important;
+  box-shadow: 0 10px 24px rgba(79, 60, 31, 0.1) !important;
+}
+
+.tea-room-skin-post {
+  min-height: 10rem;
+  padding: clamp(1.5rem, 2.5vw, 2.35rem) clamp(1.75rem, 3.3vw, 3.5rem) !important;
+  padding-left: clamp(3.6rem, 5.7vw, 7.1rem) !important;
+  background-color: #f7f0e1 !important;
+  background-image: url("./assets/tea-room/forum-post-card.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.tea-room-skin-rules {
+  min-height: 25rem;
+  padding: clamp(2.3rem, 3vw, 3.25rem) clamp(1.75rem, 3vw, 2.8rem) !important;
+  background-color: #f6efdf !important;
+  background-image: url("./assets/tea-room/forum-rules-board.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.tea-room-skin-tags {
+  min-height: 22rem;
+  padding: clamp(2.2rem, 3vw, 3.1rem) clamp(1.75rem, 3vw, 2.75rem) !important;
+  background-color: #f5eedf !important;
+  background-image: url("./assets/tea-room/forum-tags-board.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.tea-room-skin-post > *,
+.tea-room-skin-intro > *,
+.tea-room-skin-rules > *,
+.tea-room-skin-tags > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 720px) {
+  .tea-room-skin-post {
+    min-height: 8.75rem;
+    padding: 1.35rem 1.15rem 1.35rem 2.2rem !important;
+    background-size: auto 100% !important;
+    background-position: center !important;
+  }
+
+  .tea-room-skin-rules,
+  .tea-room-skin-tags {
+    min-height: 18rem;
+    padding: 2rem 1.55rem !important;
+  }
+}

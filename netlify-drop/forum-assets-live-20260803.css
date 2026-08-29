@@ -1,0 +1,57 @@
+/* Live Tea House asset layer. Scoped so the rest of the game is unchanged. */
+body.forum-assets-live-20260803 {
+  position: relative;
+  min-height: 100vh;
+  background-color: #eee5d2 !important;
+  background-image: url("./assets/tea-room/tea-room-background.png?v=20260803-live") !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed;
+}
+
+body.forum-assets-live-20260803 > main,
+body.forum-assets-live-20260803 > #app,
+body.forum-assets-live-20260803 > .app,
+body.forum-assets-live-20260803 > .page,
+body.forum-assets-live-20260803 .forum-page,
+body.forum-assets-live-20260803 .forum-shell,
+body.forum-assets-live-20260803 .forum-layout,
+body.forum-assets-live-20260803 .forum-content {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body.forum-assets-live-20260803 [data-forum-asset="post"],
+body.forum-assets-live-20260803 [data-forum-asset="rules"],
+body.forum-assets-live-20260803 [data-forum-asset="tags"] {
+  background-color: rgba(250, 245, 231, 0.72) !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  border-color: rgba(154, 119, 69, 0.34) !important;
+  box-shadow: 0 8px 24px rgba(74, 52, 24, 0.08);
+}
+
+body.forum-assets-live-20260803 [data-forum-asset="post"] {
+  background-image: url("./assets/tea-room/forum-post-card.png?v=20260803-live") !important;
+}
+
+body.forum-assets-live-20260803 [data-forum-asset="rules"] {
+  background-image: url("./assets/tea-room/forum-rules-board.png?v=20260803-live") !important;
+}
+
+body.forum-assets-live-20260803 [data-forum-asset="tags"] {
+  background-image: url("./assets/tea-room/forum-tags-board.png?v=20260803-live") !important;
+}
+
+body.forum-assets-live-20260803 [data-forum-asset]::before,
+body.forum-assets-live-20260803 [data-forum-asset]::after {
+  background-image: none !important;
+}
+
+@media (max-width: 720px) {
+  body.forum-assets-live-20260803 {
+    background-attachment: scroll;
+  }
+}

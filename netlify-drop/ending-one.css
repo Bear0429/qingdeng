@@ -1,0 +1,134 @@
+:root {
+  color-scheme: dark;
+  font-family: "STKaiti", "KaiTi", "FangSong", serif;
+  background: #050706;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  color: #ded0ae;
+  background:
+    linear-gradient(180deg, rgba(2, 5, 5, 0.28), rgba(1, 2, 2, 0.92)),
+    radial-gradient(circle at 50% 38%, rgba(69, 87, 75, 0.26), transparent 34%),
+    url("./assets/locations/old-well-depth.png") center / cover fixed no-repeat,
+    #050706;
+}
+
+.ending-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 32px;
+}
+
+.ending-card {
+  width: min(760px, 100%);
+  padding: clamp(46px, 8vw, 86px) clamp(30px, 8vw, 92px);
+  border: 1px solid rgba(187, 139, 66, 0.5);
+  background:
+    linear-gradient(135deg, rgba(18, 20, 18, 0.96), rgba(5, 7, 6, 0.97));
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.8), inset 0 0 70px rgba(119, 81, 37, 0.08);
+  text-align: center;
+}
+
+.ending-number {
+  margin: 0 0 18px;
+  color: #b8894d;
+  font-size: 0.95rem;
+  letter-spacing: 0.5em;
+}
+
+h1 {
+  margin: 0;
+  color: #eadab5;
+  font-size: clamp(2.7rem, 8vw, 5.6rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-shadow: 0 4px 24px #000;
+}
+
+.ending-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 32px auto 38px;
+  color: #9f7238;
+}
+
+.ending-divider::before,
+.ending-divider::after {
+  height: 1px;
+  flex: 1;
+  content: "";
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+
+.ending-divider::after {
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+.ending-divider span {
+  width: 9px;
+  height: 9px;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.ending-copy {
+  margin: 0 auto;
+  color: #d7c9aa;
+  font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+  line-height: 2.1;
+  letter-spacing: 0.1em;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.ending-copy p {
+  margin: 0 0 1em;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.ending-note {
+  margin: 34px 0 44px;
+  color: rgba(181, 163, 128, 0.62);
+  font-size: 0.92rem;
+  letter-spacing: 0.2em;
+}
+
+.ending-return {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid rgba(184, 135, 65, 0.55);
+  color: #d8c39a;
+  text-decoration: none;
+  letter-spacing: 0.18em;
+}
+
+.ending-return:hover,
+.ending-return:focus-visible {
+  border-color: #deb36a;
+  outline: 1px solid rgba(222, 179, 106, 0.5);
+  outline-offset: 4px;
+  color: #fff0cc;
+}
+
+@media (max-width: 600px) {
+  .ending-page {
+    padding: 16px;
+  }
+
+  .ending-card {
+    padding-inline: 24px;
+  }
+}

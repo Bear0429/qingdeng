@@ -1,0 +1,216 @@
+/* Scoped Tea Room background update. Existing forum content and interactions stay unchanged. */
+html:has(body.forum-tea-room-final),
+body.forum-tea-room-final {
+  background-color: #eee5d4 !important;
+  background-image: url("./assets/tea-room/shanmen-tearoom-base.png?v=20260810") !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+body.forum-tea-room-final {
+  min-height: 100vh;
+}
+
+body.forum-tea-room-final::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("./assets/tea-room/shanmen-tearoom-base.png?v=20260810") center top / cover no-repeat;
+}
+
+body.forum-tea-room-final .page-shell,
+body.forum-tea-room-final .page-container,
+body.forum-tea-room-final .forum-page,
+body.forum-tea-room-final .forum-shell,
+body.forum-tea-room-final .forum-layout,
+body.forum-tea-room-final .forum-content {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* The supplied landscape is the page-level scene; keep long pages transparent over it. */
+body.forum-tea-room-final .page-shell,
+body.forum-tea-room-final .page-main,
+body.forum-tea-room-final .site-footer {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Remove the green title strips from the two side boards, while keeping their paper shape. */
+body.forum-tea-room-final .rule-card .panel-kicker,
+body.forum-tea-room-final .notice-card .panel-kicker {
+  top: -22px !important;
+  z-index: 4 !important;
+  min-width: 174px !important;
+  padding: 8px 28px 9px !important;
+  color: #6d583e !important;
+  border: 1px solid rgba(177, 135, 72, 0.62) !important;
+  background: linear-gradient(180deg, #fffaf0, #f1e3c8) !important;
+  clip-path: polygon(9% 0, 91% 0, 100% 50%, 91% 100%, 9% 100%, 0 50%) !important;
+  box-shadow: 0 4px 8px rgba(92, 67, 34, 0.1) !important;
+}
+
+/* Posts use a clean paper surface instead of the illustrated post-card asset. */
+body.forum-tea-room-final .thread-card,
+body.forum-tea-room-final .tea-room-skin-post,
+body.forum-tea-room-final .forum-asset-post,
+body.forum-tea-room-final [data-tea-art="post"],
+body.forum-tea-room-final [data-forum-asset="post"],
+body.forum-tea-room-final [data-tea-room-role="post"],
+body.forum-tea-room-final [data-tea-asset="post"] {
+  background-color: #f7f0e1 !important;
+  background-image: none !important;
+  background-position: initial !important;
+  background-size: auto !important;
+}
+
+/* Keep the two page columns on one quiet paper plane after a detail re-render. */
+body.forum-tea-room-final .forum-main {
+  background: #f7f0e1 !important;
+  background-image: none !important;
+}
+
+body.forum-tea-room-final .forum-side {
+  background: #f5eedf !important;
+  background-image: none !important;
+  overflow: visible !important;
+}
+
+/* Reset every inherited background layer so all post cards match the simple reference card. */
+body.forum-tea-room-final .thread-card,
+body.forum-tea-room-final .thread-card:nth-child(even) {
+  background: #f7f0e1 !important;
+  background-image: none !important;
+  box-shadow:
+    inset 0 0 0 6px rgba(255, 253, 248, 0.72),
+    0 7px 16px rgba(74, 54, 31, 0.08) !important;
+}
+
+/* Older asset markers also land on the title row; remove their extra paper layer. */
+body.forum-tea-room-final .thread-card .forum-asset-post,
+body.forum-tea-room-final .thread-card [data-forum-asset="post"],
+body.forum-tea-room-final .thread-card [data-tea-room-role="post"],
+body.forum-tea-room-final .thread-card [data-tea-asset="post"],
+body.forum-tea-room-final .thread-card [data-tea-art="post"] {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.forum-tea-room-final .rule-card,
+body.forum-tea-room-final .notice-card {
+  overflow: visible !important;
+}
+
+/* The auto-marker can tag the overlay itself; keep the modal veil dark and blurred. */
+body.forum-tea-room-final .detail-overlay,
+body.forum-tea-room-final .detail-overlay[data-forum-asset="post"],
+body.forum-tea-room-final .detail-overlay[data-tea-room-role="post"],
+body.forum-tea-room-final .detail-overlay[data-tea-asset="post"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  background: rgba(17, 27, 29, 0.52) !important;
+  background-image: none !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* The opened post uses the supplied landscape as its lowest paper layer. */
+body.forum-tea-room-final .detail-card {
+  flex: 0 1 auto !important;
+  height: min(90vh, 920px) !important;
+  max-height: calc(100vh - 40px) !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-y !important;
+  background-color: #f4ead6 !important;
+  background-image: url("./assets/tea-room/page-background-1.png?v=20260803") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* Reply rows and bubbles stay on a quiet solid paper surface. */
+body.forum-tea-room-final .detail-card .reply-entry {
+  background-color: #f5eedf !important;
+  background-image: none !important;
+}
+
+body.forum-tea-room-final .detail-card .reply-bubble,
+body.forum-tea-room-final .detail-card .reply-bubble::before {
+  background: #fdf9ee !important;
+  background-image: none !important;
+}
+
+/* Reassert the two illustrated side boards after the forum re-renders on close. */
+body.forum-tea-room-final .rule-card,
+body.forum-tea-room-final .rule-card[data-tea-art="post"],
+body.forum-tea-room-final .rule-card[data-forum-asset="post"],
+body.forum-tea-room-final .rule-card[data-tea-room-role="post"],
+body.forum-tea-room-final .rule-card[data-tea-asset="post"] {
+  background-image: url("./assets/tea-room/forum-rules-board.png?v=20260803-final") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+body.forum-tea-room-final .notice-card,
+body.forum-tea-room-final .notice-card[data-tea-art="post"],
+body.forum-tea-room-final .notice-card[data-forum-asset="post"],
+body.forum-tea-room-final .notice-card[data-tea-room-role="post"],
+body.forum-tea-room-final .notice-card[data-tea-asset="post"] {
+  background-image: url("./assets/tea-room/forum-tags-board.png?v=20260803-final") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+body.forum-tea-room-final .thread-card::before,
+body.forum-tea-room-final .thread-card::after {
+  background: linear-gradient(90deg, #b88443 0 20%, #b9a37d 22% 72%, #d0a45b 74%) !important;
+}
+
+/* The intro panel is marked around the existing Tea Room title by the companion script. */
+body.forum-tea-room-final [data-tea-room-surface="intro"] {
+  background-color: rgba(250, 246, 235, 0.78) !important;
+  background-image: url("./assets/tea-room/tea-room-background-latest.png?v=20260803") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* Keep the whole Tea Room hero on one quiet solid paper surface. */
+body.forum-tea-room-final .forum-hero,
+body.forum-tea-room-final .forum-hero[data-tea-room-surface="intro"],
+body.forum-tea-room-final [data-tea-room-surface="intro"].forum-hero,
+body.forum-tea-room-final .forum-hero [data-tea-room-surface="intro"] {
+  background: #f5eedf !important;
+  background-image: none !important;
+}
+
+@media (max-width: 720px) {
+  html:has(body.forum-tea-room-final),
+  body.forum-tea-room-final {
+    background-attachment: scroll !important;
+    background-size: auto 100% !important;
+  }
+
+  body.forum-tea-room-final::before {
+    background-size: auto 100%;
+  }
+
+  body.forum-tea-room-final {
+    background-attachment: scroll !important;
+    background-size: auto 100% !important;
+  }
+}

@@ -1,0 +1,50 @@
+/* Background assets for the actual forum.html entry point. */
+body.forum-asset-page {
+  background-color: #eee5d2 !important;
+  background-image: url("./assets/tea-room/tea-room-background.png") !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed;
+}
+
+body.forum-asset-page .forum-asset-post,
+body.forum-asset-page .forum-asset-rules,
+body.forum-asset-page .forum-asset-tags {
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border-color: rgba(154, 119, 69, 0.32) !important;
+  box-shadow: 0 8px 24px rgba(74, 52, 24, 0.08);
+}
+
+body.forum-asset-page .forum-asset-post {
+  background-image: url("./assets/tea-room/forum-post-card.png") !important;
+  background-size: 100% 100% !important;
+}
+
+body.forum-asset-page .forum-asset-rules {
+  background-image: url("./assets/tea-room/forum-rules-board.png") !important;
+  background-size: 100% 100% !important;
+}
+
+body.forum-asset-page .forum-asset-tags {
+  background-image: url("./assets/tea-room/forum-tags-board.png") !important;
+  background-size: 100% 100% !important;
+}
+
+body.forum-asset-page .forum-asset-post::before,
+body.forum-asset-page .forum-asset-post::after,
+body.forum-asset-page .forum-asset-rules::before,
+body.forum-asset-page .forum-asset-rules::after,
+body.forum-asset-page .forum-asset-tags::before,
+body.forum-asset-page .forum-asset-tags::after {
+  background-image: none !important;
+}
+
+@media (max-width: 720px) {
+  body.forum-asset-page {
+    background-attachment: scroll;
+    background-size: auto 100% !important;
+  }
+}

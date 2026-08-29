@@ -1,0 +1,4111 @@
+:root {
+  --ink: #221d19;
+  --ink-soft: #5d4d3a;
+  --teal-900: #102d31;
+  --teal-800: #183b3f;
+  --gold: #b48a4c;
+  --paper: #fbf6e9;
+  --content-width: 1460px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(248, 240, 222, 0.76), rgba(241, 230, 207, 0.84)),
+    url("./assets/backgrounds/home-frame.png") center top / cover fixed no-repeat,
+    #f3e8d2;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+}
+
+body {
+  line-height: 1.8;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 250, 240, 0.34), rgba(245, 233, 210, 0.28)),
+    url("./assets/backgrounds/home-frame.png") center top / cover no-repeat;
+  opacity: 0.22;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  overflow: visible;
+  border-top: 2px solid rgba(192, 153, 84, 0.74);
+  border-bottom: 2px solid rgba(192, 153, 84, 0.66);
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(74, 104, 96, 0.2), transparent 32%),
+    linear-gradient(180deg, rgba(18, 48, 52, 0.98), rgba(14, 39, 43, 0.98));
+  box-shadow:
+    inset 0 0 0 5px rgba(208, 172, 103, 0.08),
+    0 10px 24px rgba(29, 37, 34, 0.18);
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 5px 16px;
+  border: 1px solid rgba(205, 169, 99, 0.35);
+  border-radius: 18px 4px;
+  pointer-events: none;
+}
+
+.header-inner,
+.jade-main {
+  width: min(calc(100% - 44px), var(--content-width));
+  margin: 0 auto;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  padding: 18px 0;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 18px;
+  color: #f3dfb8;
+}
+
+.brand-seal {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid rgba(219, 182, 111, 0.82);
+  border-radius: 50%;
+  color: #e6c77f;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.7rem;
+  box-shadow:
+    inset 0 0 0 6px rgba(201, 166, 100, 0.1),
+    0 0 0 1px rgba(17, 39, 42, 0.8);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-overline {
+  color: rgba(235, 211, 161, 0.8);
+  font-size: 0.84rem;
+  letter-spacing: 0.18em;
+}
+
+.brand-title {
+  color: #f3dfb8;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  letter-spacing: 0.1em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 12px 18px;
+  color: rgba(248, 229, 191, 0.94);
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff4d8;
+  background: rgba(205, 171, 108, 0.08);
+  outline: none;
+}
+
+.nav-link.is-active {
+  padding-inline: 24px;
+  color: #253d3b;
+  border: 1px solid #c29a59;
+  background: linear-gradient(180deg, #fffaf0, #eee0c5);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #d0a355;
+  background: #a84634;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.jade-main {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 110px);
+  padding: 54px 0 68px;
+}
+
+.paper-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(174, 128, 62, 0.44);
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 247, 0.96), rgba(255, 252, 244, 0.9) 58%, rgba(248, 239, 220, 0.82)),
+    url("./assets/backgrounds/ink-right.png") right center / cover no-repeat;
+  box-shadow:
+    inset 0 0 0 7px rgba(255, 253, 248, 0.72),
+    inset 0 0 0 8px rgba(169, 124, 58, 0.16),
+    0 10px 24px rgba(75, 56, 31, 0.12);
+}
+
+.paper-panel::before {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  z-index: 0;
+  border: 1px solid rgba(174, 128, 62, 0.22);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.paper-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.jade-login-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.48fr);
+  gap: 38px;
+  width: min(100%, 1100px);
+  min-height: 520px;
+  padding: 52px 58px;
+}
+
+.panel-kicker {
+  margin: 0 0 14px;
+  color: #8a6a3d;
+  font-size: 0.94rem;
+  letter-spacing: 0.14em;
+}
+
+.jade-copy {
+  align-self: center;
+}
+
+.jade-copy h1 {
+  margin: 0;
+  color: #201b17;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(3rem, 5vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: 0.08em;
+}
+
+.jade-desc {
+  max-width: 680px;
+  margin: 26px 0 0;
+  color: var(--ink-soft);
+  font-size: 1.04rem;
+  line-height: 2;
+}
+
+.jade-form {
+  align-self: center;
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid rgba(173, 126, 59, 0.34);
+  background:
+    linear-gradient(rgba(255, 253, 247, 0.86), rgba(249, 240, 221, 0.86)),
+    url("./assets/backgrounds/ink-left.png") left bottom / cover no-repeat;
+  box-shadow:
+    inset 0 0 0 5px rgba(255, 255, 255, 0.42),
+    0 7px 16px rgba(74, 54, 31, 0.08);
+}
+
+.jade-field {
+  display: grid;
+  gap: 8px;
+}
+
+.jade-field span {
+  color: #8a6a3d;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.08rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-field input {
+  width: 100%;
+  min-height: 58px;
+  padding: 14px 16px;
+  border: 1px solid rgba(158, 119, 61, 0.38);
+  border-radius: 3px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.84);
+  outline: none;
+}
+
+.jade-field input:focus-visible {
+  border-color: rgba(46, 86, 88, 0.72);
+  box-shadow: 0 0 0 3px rgba(46, 86, 88, 0.12);
+}
+
+.jade-submit {
+  min-height: 58px;
+  margin-top: 8px;
+  border: 2px solid #b28749;
+  border-radius: 0;
+  color: #f3dfb7;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%);
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+}
+
+.jade-submit:hover,
+.jade-submit:focus-visible {
+  filter: brightness(1.08);
+  outline: none;
+}
+
+.jade-feedback {
+  min-height: 1.8em;
+  margin: 0;
+  color: #8f392c;
+  font-size: 0.94rem;
+}
+
+.is-dashboard-view .jade-main {
+  display: block;
+  min-height: auto;
+  padding: 36px 0 58px;
+}
+
+.dashboard-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.dashboard-hero {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 30px;
+  align-items: center;
+  min-height: 210px;
+  padding: 32px 40px;
+}
+
+.dashboard-avatar {
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  border: 3px solid rgba(180, 138, 76, 0.68);
+  border-radius: 50%;
+  background:
+    linear-gradient(rgba(33, 65, 67, 0.46), rgba(33, 65, 67, 0.5)),
+    url("./assets/backgrounds/ink-left.png") center / cover no-repeat;
+  box-shadow:
+    inset 0 0 0 7px rgba(255, 251, 239, 0.18),
+    0 0 0 1px rgba(68, 58, 36, 0.2);
+}
+
+.dashboard-avatar span {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  min-height: 92px;
+  padding: 10px 8px;
+  color: #ead8aa;
+  border: 1px solid rgba(214, 178, 110, 0.42);
+  background: rgba(23, 52, 55, 0.72);
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  letter-spacing: 0.16em;
+  text-align: center;
+  writing-mode: vertical-rl;
+}
+
+.dashboard-welcome h1 {
+  margin: 0;
+  color: #201b17;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(2.45rem, 4vw, 3.65rem);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-welcome p {
+  margin: 18px 0 0;
+  color: #4b3d2f;
+  font-size: 1.08rem;
+}
+
+.dashboard-welcome small {
+  display: block;
+  margin-top: 10px;
+  color: #6b5a45;
+}
+
+.dashboard-card,
+.activity-row,
+.record-stats,
+.task-list {
+  border: 1px solid rgba(173, 126, 59, 0.28);
+  background: rgba(255, 252, 244, 0.58);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.28);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.34fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.dashboard-main,
+.dashboard-side {
+  display: grid;
+  gap: 18px;
+}
+
+.dashboard-card-rack {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  padding: 22px 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.93), rgba(248, 239, 220, 0.93)),
+    url("./assets/backgrounds/ink-left.png") left bottom / cover no-repeat;
+}
+
+.dashboard-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  min-height: 180px;
+  padding: 16px 12px 14px;
+  text-align: center;
+  border-right: 0;
+}
+
+button.dashboard-card {
+  appearance: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.dashboard-card.is-link {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.dashboard-card.is-link:hover,
+.dashboard-card.is-link:focus-visible {
+  z-index: 2;
+  border-color: rgba(45, 105, 100, 0.42);
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0.32),
+    0 12px 22px rgba(73, 52, 28, 0.16);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.dashboard-card:last-child {
+  border-right: 1px solid rgba(173, 126, 59, 0.28);
+}
+
+.dashboard-card-image {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 74px;
+  overflow: visible;
+}
+
+.dashboard-card-image img {
+  display: block;
+  width: 92px;
+  height: 82px;
+  object-fit: contain;
+  filter: sepia(0.08) saturate(0.92);
+  mix-blend-mode: multiply;
+}
+
+.dashboard-card h2,
+.activity-panel h2,
+.side-panel h2 {
+  margin: 0;
+  color: #201b17;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-card h2 {
+  margin-top: 8px;
+  font-size: 1.18rem;
+}
+
+.dashboard-card p {
+  margin: 6px 0 0;
+  color: #6a5843;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.card-badge,
+.card-tag,
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f8ead0;
+  background: #b94a42;
+  font-weight: 700;
+}
+
+.card-badge {
+  position: absolute;
+  top: -4px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.card-tag,
+.status-pill {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #2d6964;
+  font-size: 0.82rem;
+}
+
+.activity-panel,
+.side-panel {
+  padding: 24px 28px;
+}
+
+.panel-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.activity-panel h2,
+.side-panel h2 {
+  font-size: 1.65rem;
+}
+
+.dashboard-text-button {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  color: #8a6a3d;
+  background: transparent;
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-text-button::after {
+  content: "›";
+  margin-left: 8px;
+  font-family: Georgia, serif;
+  font-size: 1.25em;
+}
+
+.activity-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin: 18px 0 14px;
+}
+
+.activity-tabs span {
+  padding: 5px 16px;
+  color: #7b6449;
+  border: 1px solid rgba(173, 126, 59, 0.2);
+  background: rgba(248, 239, 220, 0.58);
+}
+
+.activity-tabs span.is-active {
+  color: #f3dfb7;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+}
+
+.activity-list {
+  display: grid;
+}
+
+.activity-row {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr) 90px 10px;
+  gap: 16px;
+  align-items: center;
+  min-height: 58px;
+  padding: 10px 14px;
+  border-bottom: 0;
+}
+
+.activity-row + .activity-row {
+  border-top: 0;
+}
+
+.activity-row span {
+  padding: 4px 12px;
+  color: #80684a;
+  background: rgba(242, 230, 207, 0.82);
+  text-align: center;
+}
+
+.activity-row strong {
+  color: #3d3025;
+  font-weight: 600;
+}
+
+.activity-row time {
+  color: #8d7b66;
+  text-align: right;
+}
+
+.activity-row i {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c4493e;
+}
+
+.identity-list {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+}
+
+.identity-list div {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.identity-list dt,
+.identity-list dd {
+  margin: 0;
+}
+
+.identity-list dt {
+  color: #8a6a3d;
+}
+
+.identity-list dd {
+  color: #51412f;
+}
+
+.record-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 18px 0 16px;
+}
+
+.record-stats div {
+  display: grid;
+  gap: 5px;
+  padding: 14px 8px;
+  text-align: center;
+}
+
+.record-stats div + div {
+  border-left: 1px solid rgba(173, 126, 59, 0.22);
+}
+
+.record-stats span {
+  color: #8a6a3d;
+}
+
+.record-stats strong {
+  color: #214d4d;
+  font-size: 1.35rem;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 16px;
+  padding: 16px;
+  list-style: none;
+}
+
+.task-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  color: #51412f;
+}
+
+.task-list li span {
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(130, 101, 58, 0.62);
+  border-radius: 50%;
+}
+
+.task-list em {
+  padding: 2px 8px;
+  border: 1px solid rgba(173, 126, 59, 0.24);
+  color: #6a7658;
+  font-style: normal;
+  font-size: 0.82rem;
+}
+
+.logout-button {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(143, 57, 44, 0.34);
+  color: #8f392c;
+  background: rgba(255, 246, 239, 0.62);
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1rem;
+}
+
+.jade-form.is-pending {
+  opacity: 0.72;
+  filter: saturate(0.72);
+  pointer-events: none;
+}
+
+body.is-transition-view,
+body.is-elder-view {
+  color: #ead4c2;
+  background:
+    radial-gradient(circle at 78% 16%, rgba(104, 0, 0, 0.28), transparent 26%),
+    radial-gradient(circle at 20% 18%, rgba(95, 14, 14, 0.32), transparent 30%),
+    linear-gradient(180deg, #080303, #170707 42%, #080202);
+}
+
+body.is-transition-view::before,
+body.is-elder-view::before {
+  background:
+    linear-gradient(rgba(5, 0, 0, 0.78), rgba(20, 3, 3, 0.88)),
+    repeating-linear-gradient(90deg, rgba(156, 0, 0, 0.1) 0 1px, transparent 1px 42px),
+    url("./assets/backgrounds/home-frame.png") center top / cover no-repeat;
+  opacity: 0.86;
+  mix-blend-mode: normal;
+}
+
+.is-elder-view .site-header {
+  border-color: rgba(137, 13, 13, 0.82);
+  background:
+    radial-gradient(circle at 52% 42%, rgba(96, 0, 0, 0.36), transparent 20%),
+    linear-gradient(180deg, rgba(5, 3, 3, 0.98), rgba(25, 5, 5, 0.98));
+  box-shadow:
+    inset 0 -10px 0 rgba(105, 0, 0, 0.18),
+    0 12px 26px rgba(0, 0, 0, 0.62);
+}
+
+.is-elder-view .site-header::before {
+  border-color: rgba(166, 20, 20, 0.38);
+}
+
+.is-elder-view .brand-seal {
+  color: #ffb2a2;
+  border-color: rgba(151, 22, 22, 0.92);
+  background: radial-gradient(circle, rgba(103, 13, 13, 0.55), rgba(0, 0, 0, 0.62));
+  box-shadow:
+    inset 0 0 18px rgba(188, 0, 0, 0.38),
+    0 0 18px rgba(148, 0, 0, 0.32);
+}
+
+.is-elder-view .brand-title,
+.is-elder-view .brand-overline,
+.is-elder-view .brand-lockup,
+.is-elder-view .nav-link {
+  color: #d6b3a0;
+  text-shadow: 0 0 10px rgba(179, 0, 0, 0.55);
+}
+
+.is-elder-view .nav-link.is-active {
+  color: #190606;
+  border-color: rgba(163, 26, 26, 0.9);
+  background: linear-gradient(180deg, #c5b6a8, #8f7c70 54%, #2c0b0b);
+  box-shadow:
+    inset 0 0 0 4px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(161, 0, 0, 0.28);
+}
+
+.is-elder-view .paper-panel {
+  border-color: rgba(151, 29, 29, 0.62);
+  background:
+    radial-gradient(circle at 80% 18%, rgba(97, 0, 0, 0.22), transparent 28%),
+    linear-gradient(180deg, rgba(31, 16, 14, 0.94), rgba(10, 6, 6, 0.96)),
+    repeating-linear-gradient(0deg, rgba(181, 0, 0, 0.08) 0 1px, transparent 1px 34px);
+  box-shadow:
+    inset 0 0 0 6px rgba(82, 0, 0, 0.16),
+    inset 0 0 42px rgba(0, 0, 0, 0.72),
+    0 10px 28px rgba(0, 0, 0, 0.48);
+}
+
+.is-elder-view .paper-panel::before {
+  border-color: rgba(178, 22, 22, 0.26);
+}
+
+.elder-dashboard-shell {
+  position: relative;
+}
+
+.elder-glyph-field {
+  position: absolute;
+  inset: -22px 0 auto;
+  z-index: 3;
+  min-height: 180px;
+  pointer-events: none;
+  color: rgba(215, 21, 21, 0.42);
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 12px rgba(196, 0, 0, 0.5);
+}
+
+.elder-glyph-field span {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.elder-glyph-field span:nth-child(1) {
+  top: 8px;
+  left: 18%;
+}
+
+.elder-glyph-field span:nth-child(2) {
+  top: 58px;
+  right: 12%;
+}
+
+.elder-glyph-field span:nth-child(3) {
+  top: 118px;
+  left: 4%;
+}
+
+.elder-glyph-field span:nth-child(4) {
+  top: 154px;
+  right: 28%;
+}
+
+.elder-glyph-field span:nth-child(5) {
+  top: 210px;
+  left: 46%;
+}
+
+.is-elder-view .dashboard-hero {
+  min-height: 230px;
+}
+
+.is-elder-view .dashboard-avatar {
+  border-color: rgba(162, 22, 22, 0.75);
+  background:
+    radial-gradient(circle, rgba(109, 0, 0, 0.42), rgba(0, 0, 0, 0.78)),
+    url("./assets/backgrounds/ink-left.png") center / cover no-repeat;
+  box-shadow:
+    inset 0 0 22px rgba(183, 0, 0, 0.34),
+    0 0 24px rgba(133, 0, 0, 0.36);
+}
+
+.is-elder-view .dashboard-avatar span {
+  color: #ffb6aa;
+  border-color: rgba(192, 23, 23, 0.46);
+  background: rgba(9, 3, 3, 0.78);
+}
+
+.is-elder-view .panel-kicker,
+.is-elder-view .dashboard-welcome p,
+.is-elder-view .dashboard-welcome small,
+.is-elder-view .dashboard-card p,
+.is-elder-view .activity-row time,
+.is-elder-view .identity-list dt,
+.is-elder-view .record-stats span {
+  color: #b88a75;
+}
+
+.is-elder-view .dashboard-welcome h1,
+.is-elder-view .dashboard-card h2,
+.is-elder-view .activity-panel h2,
+.is-elder-view .side-panel h2 {
+  color: #ffd4c6;
+  text-shadow:
+    0 0 10px rgba(190, 0, 0, 0.42),
+    2px 0 0 rgba(95, 0, 0, 0.32);
+}
+
+.is-elder-view .dashboard-card,
+.is-elder-view .activity-row,
+.is-elder-view .record-stats,
+.is-elder-view .task-list {
+  border-color: rgba(152, 26, 26, 0.44);
+  background: rgba(12, 5, 5, 0.66);
+  box-shadow:
+    inset 0 0 0 3px rgba(118, 0, 0, 0.1),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.is-elder-view .dashboard-card-rack {
+  background:
+    linear-gradient(180deg, rgba(24, 10, 9, 0.94), rgba(8, 4, 4, 0.96)),
+    repeating-linear-gradient(90deg, rgba(174, 0, 0, 0.08) 0 1px, transparent 1px 80px);
+}
+
+.is-elder-view .dashboard-card-image img {
+  filter: sepia(0.7) saturate(0.7) hue-rotate(310deg) brightness(0.72) contrast(1.18);
+  mix-blend-mode: screen;
+}
+
+.dashboard-card.is-corrupt {
+  overflow: hidden;
+}
+
+.card-glitch {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  max-width: 90%;
+  color: rgba(190, 0, 0, 0.46);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-align: right;
+  pointer-events: none;
+}
+
+.is-elder-view .activity-tabs span {
+  color: #b78972;
+  border-color: rgba(147, 25, 25, 0.34);
+  background: rgba(25, 8, 8, 0.76);
+}
+
+.is-elder-view .activity-tabs span.is-active,
+.is-elder-view .card-tag,
+.is-elder-view .status-pill {
+  color: #ffd8ca;
+  background: linear-gradient(180deg, #7f1616, #310606);
+}
+
+.is-elder-view .activity-row span {
+  color: #f0c1af;
+  background: rgba(92, 13, 13, 0.62);
+}
+
+.is-elder-view .activity-row strong,
+.is-elder-view .identity-list dd,
+.is-elder-view .task-list li,
+.is-elder-view .record-stats strong {
+  color: #e5c0ad;
+}
+
+.is-elder-view .dashboard-text-button,
+.is-elder-view .logout-button {
+  color: #ff9a8a;
+}
+
+.is-elder-view .logout-button {
+  border-color: rgba(180, 20, 20, 0.52);
+  background: rgba(38, 6, 6, 0.72);
+}
+
+body.is-modal-open {
+  overflow: hidden;
+}
+
+.jade-dossier-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 244, 220, 0.28), transparent 38%),
+    rgba(19, 23, 20, 0.54);
+  backdrop-filter: blur(3px);
+}
+
+.jade-dossier-modal {
+  width: min(100%, 1040px);
+  max-height: min(86vh, 980px);
+  overflow: auto;
+  padding: 36px 42px 34px;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 247, 0.97), rgba(255, 249, 236, 0.92)),
+    url("./assets/backgrounds/ink-right.png") right bottom / cover no-repeat;
+}
+
+.jade-dossier-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(174, 128, 62, 0.28);
+}
+
+.jade-dossier-header h1 {
+  margin: 0;
+  color: #12363a;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(2.2rem, 4.2vw, 3.55rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.08em;
+}
+
+.jade-dossier-subtitle {
+  margin: 14px 0 0;
+  color: #725b3f;
+  letter-spacing: 0.08em;
+}
+
+.jade-dossier-stamp {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  min-height: 86px;
+  padding: 10px;
+  border: 2px solid rgba(169, 50, 40, 0.72);
+  color: #9f3329;
+  background: rgba(255, 246, 232, 0.62);
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  transform: rotate(-7deg);
+  box-shadow: inset 0 0 0 4px rgba(169, 50, 40, 0.08);
+}
+
+.jade-dossier-section {
+  margin-top: 24px;
+  padding: 22px 24px;
+  border: 1px solid rgba(173, 126, 59, 0.26);
+  background: rgba(255, 252, 244, 0.62);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.28);
+}
+
+.jade-dossier-section h2 {
+  margin: 0 0 16px;
+  color: #12363a;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.jade-dossier-section p {
+  margin: 10px 0 0;
+  color: #51412f;
+}
+
+.jade-dossier-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+  margin: 0;
+}
+
+.jade-dossier-meta div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(173, 126, 59, 0.18);
+}
+
+.jade-dossier-meta dt,
+.jade-dossier-meta dd {
+  margin: 0;
+}
+
+.jade-dossier-meta dt {
+  color: #8a6a3d;
+}
+
+.jade-dossier-meta dd {
+  color: #3f3126;
+  font-weight: 600;
+}
+
+.jade-dossier-timeline {
+  display: grid;
+  gap: 10px;
+}
+
+.jade-dossier-timeline-item {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 12px 14px;
+  border-left: 3px solid rgba(180, 138, 76, 0.52);
+  background: rgba(248, 239, 220, 0.48);
+}
+
+.jade-dossier-timeline-item time {
+  color: #7c603e;
+  font-weight: 700;
+}
+
+.jade-dossier-timeline-item p {
+  margin: 0;
+}
+
+.jade-dossier-note {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-left: 4px solid rgba(159, 51, 41, 0.72);
+  background: rgba(244, 225, 205, 0.58);
+}
+
+.jade-dossier-note strong {
+  color: #6e3e31;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  letter-spacing: 0.08em;
+}
+
+.jade-dossier-alert {
+  color: #a72e25 !important;
+}
+
+.jade-dossier-close {
+  display: block;
+  min-height: 44px;
+  margin: 24px 0 0 auto;
+  padding: 0 28px;
+  border: 1px solid rgba(45, 105, 100, 0.48);
+  color: #f5e5c2;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.04rem;
+  letter-spacing: 0.12em;
+}
+
+.jade-dossier-close:hover,
+.jade-dossier-close:focus-visible {
+  filter: brightness(1.08);
+  outline: 2px solid rgba(180, 138, 76, 0.35);
+  outline-offset: 3px;
+}
+
+.jade-chat-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 244, 220, 0.24), transparent 38%),
+    rgba(19, 23, 20, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.jade-chat-modal {
+  width: min(100%, 1000px);
+  max-height: min(86vh, 980px);
+  overflow: auto;
+  padding: 36px 42px 34px;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 247, 0.97), rgba(255, 249, 236, 0.92)),
+    url("./assets/backgrounds/ink-right.png") right bottom / cover no-repeat;
+}
+
+.jade-chat-modal::before {
+  display: none;
+}
+
+.jade-chat-modal {
+  width: min(100%, 1180px);
+  max-height: min(88vh, 980px);
+}
+
+.jade-chat-layout {
+  display: grid;
+  grid-template-columns: minmax(205px, 248px) minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.jade-chat-contacts {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(174, 128, 62, 0.2);
+  background: rgba(238, 226, 201, 0.48);
+}
+
+.jade-chat-contacts-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 12px;
+  color: #705735;
+  letter-spacing: 0.1em;
+}
+
+.jade-chat-contacts-heading span {
+  display: grid;
+  min-width: 24px;
+  min-height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  color: #efe1bd;
+  background: #245453;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+.jade-chat-contact-list {
+  display: grid;
+  gap: 8px;
+}
+
+.jade-chat-contact {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 9px;
+  width: 100%;
+  padding: 10px 9px;
+  border: 1px solid transparent;
+  color: #493b2d;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.jade-chat-contact:hover,
+.jade-chat-contact:focus-visible,
+.jade-chat-contact.is-active {
+  border-color: rgba(45, 105, 100, 0.32);
+  background: rgba(255, 250, 239, 0.78);
+  outline: none;
+}
+
+.jade-chat-contact.is-active {
+  box-shadow: inset 3px 0 0 #2b6967;
+}
+
+.jade-chat-contact:hover,
+.jade-chat-contact:focus-visible {
+  transform: translateX(2px);
+}
+
+.jade-chat-contact-avatar,
+.jade-chat-conversation-avatar {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(174, 128, 62, 0.28);
+  border-radius: 8px;
+  color: #5c442b;
+  background: linear-gradient(180deg, #fff9ef, #efe0c6);
+  font-family: "STKaiti", "KaiTi", serif;
+  font-weight: 700;
+}
+
+.jade-chat-contact-avatar {
+  width: 42px;
+  height: 42px;
+  font-size: 1.15rem;
+}
+
+.jade-chat-contact-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+  align-content: center;
+}
+
+.jade-chat-contact-copy strong {
+  overflow: hidden;
+  color: #443324;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jade-chat-contact-copy small {
+  overflow: hidden;
+  color: #8a7050;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jade-chat-contact time {
+  grid-column: 2;
+  color: #a08663;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+.jade-chat-unread-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #f5ead5;
+  border-radius: 50%;
+  background: #bb3b36;
+  box-shadow: 0 0 0 1px rgba(187, 59, 54, 0.18), 0 2px 7px rgba(118, 24, 21, 0.35);
+}
+
+.jade-chat-conversation {
+  min-width: 0;
+  border: 1px solid rgba(174, 128, 62, 0.2);
+  background: rgba(255, 252, 245, 0.46);
+}
+
+.jade-chat-conversation-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 238, 224, 0.85);
+  min-height: 400px;
+}
+
+.jade-chat-empty-placeholder {
+  text-align: center;
+  color: rgba(120, 98, 68, 0.5);
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.jade-chat-conversation-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(174, 128, 62, 0.18);
+  background: rgba(248, 239, 219, 0.56);
+}
+
+.jade-chat-conversation-avatar {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #efe1ba;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+}
+
+.jade-chat-conversation-header h2 {
+  margin: 0;
+  color: #315d5d;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.jade-chat-conversation-header p {
+  margin: 2px 0 0;
+  color: #8a6a3d;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.jade-chat-conversation .jade-chat-thread {
+  min-height: 420px;
+  margin: 0;
+}
+
+.jade-chat-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(174, 128, 62, 0.28);
+}
+
+.jade-chat-header h1 {
+  margin: 0;
+  color: #12363a;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(2.15rem, 4vw, 3.35rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.08em;
+}
+
+.jade-chat-subtitle {
+  margin: 14px 0 0;
+  color: #725b3f;
+  letter-spacing: 0.08em;
+}
+
+.jade-chat-stamp {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  min-height: 86px;
+  padding: 10px;
+  border: 2px solid rgba(169, 50, 40, 0.72);
+  color: #9f3329;
+  background: rgba(255, 246, 232, 0.62);
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  transform: rotate(-7deg);
+  box-shadow: inset 0 0 0 4px rgba(169, 50, 40, 0.08);
+}
+
+.jade-chat-thread {
+  display: grid;
+  gap: 14px;
+  min-height: 470px;
+  padding: 24px 6px 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.jade-chat-thread:focus-visible {
+  outline: 2px solid rgba(180, 138, 76, 0.32);
+  outline-offset: 8px;
+}
+
+.jade-chat-date-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 6px;
+  color: #8a6a3d;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+}
+
+.jade-chat-date-divider::before,
+.jade-chat-date-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(174, 128, 62, 0.24);
+}
+
+.jade-chat-date-divider span {
+  padding: 5px 12px;
+  border: 1px solid rgba(174, 128, 62, 0.2);
+  border-radius: 999px;
+  background: rgba(245, 235, 214, 0.58);
+}
+
+.jade-chat-time {
+  display: grid;
+  place-items: center;
+  margin: 2px 0 8px;
+}
+
+.jade-chat-time span {
+  padding: 7px 18px;
+  border: 1px solid rgba(174, 128, 62, 0.22);
+  border-radius: 999px;
+  color: #7a603d;
+  background: rgba(245, 235, 214, 0.58);
+  font-size: 0.94rem;
+  letter-spacing: 0.1em;
+}
+
+.jade-chat-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 84%;
+  animation: jadeChatAppear 0.22s ease-out both;
+}
+
+.jade-chat-row.is-self {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.jade-chat-avatar {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(174, 128, 62, 0.42);
+  border-radius: 50%;
+  color: #f6ead0;
+  background: linear-gradient(180deg, #355e60, #183d40);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.12),
+    0 5px 12px rgba(58, 42, 20, 0.1);
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.jade-chat-row.is-other .jade-chat-avatar {
+  color: #5c442b;
+  background: linear-gradient(180deg, #fff9ef, #efe0c6);
+}
+
+.jade-chat-row.is-self .jade-chat-avatar {
+  color: #efe1ba;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+}
+
+.jade-chat-body {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  flex: 0 1 auto;
+  max-width: min(100%, 640px);
+}
+
+.jade-chat-row.is-self .jade-chat-body {
+  justify-items: end;
+}
+
+.jade-chat-name {
+  margin: 0;
+  color: #8a6a3d;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-chat-conversation-label {
+  margin: 0;
+  color: #315d5d;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.jade-chat-bubble {
+  width: fit-content;
+  max-width: min(100%, 620px);
+  padding: 14px 16px;
+  border-radius: 18px 18px 18px 6px;
+  background: rgba(250, 244, 229, 0.86);
+  box-shadow: 0 6px 16px rgba(75, 56, 31, 0.06);
+}
+
+.jade-chat-row.is-self .jade-chat-bubble {
+  border-color: rgba(45, 105, 100, 0.26);
+  border-radius: 18px 18px 6px 18px;
+  background: linear-gradient(180deg, rgba(233, 243, 240, 0.96), rgba(218, 233, 230, 0.9));
+}
+
+.jade-chat-bubble p {
+  margin: 0;
+  color: #3f3126;
+  line-height: 1.9;
+}
+
+.jade-chat-empty {
+  justify-self: center;
+  margin: 44px 0 0;
+  padding: 12px 20px;
+  border-radius: 999px;
+  color: #8a6a3d;
+  background: rgba(245, 235, 214, 0.58);
+  letter-spacing: 0.08em;
+}
+
+.jade-chat-elder-hint {
+  justify-self: center;
+  margin: 24px 0 0;
+  padding: 10px 22px;
+  border-radius: 999px;
+  color: #c8a86a;
+  background: rgba(60, 40, 20, 0.6);
+  border: 1px solid rgba(200, 168, 106, 0.4);
+  letter-spacing: 0.12em;
+  font-size: 0.88rem;
+  cursor: pointer;
+  animation: elder-hint-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes elder-hint-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.jade-chat-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.jade-chat-input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(174, 128, 62, 0.22);
+}
+
+.jade-chat-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 18px;
+  border: 1px solid rgba(120, 92, 54, 0.28);
+  border-radius: 999px;
+  color: #2a241d;
+  background: rgba(255, 252, 245, 0.85);
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  font-size: 0.98rem;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.jade-chat-input::placeholder {
+  color: rgba(120, 96, 60, 0.55);
+}
+
+.jade-chat-input:focus-visible {
+  border-color: rgba(136, 102, 42, 0.5);
+  box-shadow: 0 0 0 3px rgba(185, 147, 82, 0.18);
+}
+
+.jade-chat-send {
+  flex: none;
+  padding: 0 26px;
+  border: 1px solid rgba(45, 105, 100, 0.48);
+  border-radius: 999px;
+  color: #f5e5c2;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.jade-chat-send:hover,
+.jade-chat-send:focus-visible {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.jade-chat-send:active {
+  transform: translateY(0);
+}
+
+.jade-chat-image-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 260px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 252, 245, 0.9);
+  border: 1px solid rgba(174, 128, 62, 0.22);
+}
+
+.jade-chat-row.is-self .jade-chat-image-bubble {
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+.jade-chat-image {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  border-radius: 10px;
+  cursor: zoom-in;
+  transition: transform 180ms ease;
+}
+
+.jade-chat-image-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jade-chat-image-link .jade-chat-image {
+  cursor: pointer;
+}
+
+.jade-chat-image:hover {
+  transform: scale(1.02);
+}
+
+.jade-chat-pickup {
+  padding: 8px 22px;
+  border: 1px solid rgba(146, 53, 40, 0.5);
+  border-radius: 999px;
+  color: #fff5ef;
+  background: linear-gradient(180deg, #a52d27, #7a1f1a);
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.jade-chat-pickup:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.jade-chat-pickup.is-claimed,
+.jade-chat-pickup:disabled {
+  cursor: default;
+  opacity: 0.6;
+  background: linear-gradient(180deg, #6b5947, #4a3d30);
+  border-color: rgba(107, 89, 71, 0.4);
+}
+
+.jade-chat-image-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  background: rgba(8, 12, 14, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.jade-chat-image-stage {
+  position: relative;
+  max-width: min(90vw, 900px);
+  max-height: 88vh;
+}
+
+.jade-chat-image-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: 88vh;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+.jade-chat-image-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(201, 166, 100, 0.5);
+  border-radius: 50%;
+  color: #f2e9d6;
+  background: rgba(20, 36, 40, 0.95);
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.jade-san-juan-detail {
+  margin-top: 22px;
+  padding: 22px 24px;
+  border: 1px solid rgba(174, 128, 62, 0.28);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.88), rgba(248, 240, 225, 0.92)),
+    linear-gradient(120deg, rgba(185, 147, 82, 0.08), transparent 50%);
+}
+
+.jade-san-juan-detail h3 {
+  margin: 0;
+  color: #153d3e;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-san-juan-subtitle {
+  margin: 10px 0 0;
+  color: #8a6a3d;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+.jade-san-juan-quotes {
+  margin: 16px 0;
+  padding: 14px 18px;
+  border-left: 3px solid rgba(171, 130, 60, 0.5);
+  border-radius: 0 12px 12px 0;
+  background: rgba(189, 151, 83, 0.08);
+}
+
+.jade-san-juan-quotes p {
+  margin: 6px 0;
+  color: #59452e;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.jade-san-juan-note {
+  margin: 0 0 14px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: #7a3d2f;
+  background: rgba(165, 45, 39, 0.08);
+  font-size: 0.92rem;
+}
+
+.jade-san-juan-body {
+  color: #4a3d30;
+  line-height: 1.9;
+}
+
+.jade-san-juan-body p {
+  margin: 4px 0;
+}
+
+.jade-san-juan-body h4 {
+  margin: 16px 0 8px;
+  color: #153d3e;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+}
+
+.jade-san-juan-emphasis {
+  color: #a52d27;
+  font-weight: 700;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.05rem;
+}
+
+.jade-chat-advance,
+.jade-chat-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 28px;
+  border: 1px solid rgba(45, 105, 100, 0.48);
+  color: #f5e5c2;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.04rem;
+  letter-spacing: 0.12em;
+}
+
+/* Message replies are visible at once; scroll the conversation instead. */
+.jade-chat-thread {
+  max-height: min(62vh, 620px);
+  overflow-y: auto;
+  cursor: default;
+  scrollbar-width: thin;
+}
+
+.jade-chat-advance,
+.jade-chat-stamp {
+  display: none !important;
+}
+
+.jade-chat-advance {
+  color: #315d5d;
+  border-color: rgba(174, 128, 62, 0.38);
+  background: linear-gradient(180deg, #fffaf0, #eee0c5);
+}
+
+.jade-chat-advance:hover,
+.jade-chat-advance:focus-visible,
+.jade-chat-close:hover,
+.jade-chat-close:focus-visible {
+  filter: brightness(1.08);
+  outline: 2px solid rgba(180, 138, 76, 0.35);
+  outline-offset: 3px;
+}
+
+@keyframes jadeChatAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jade-diary-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 82;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 244, 220, 0.24), transparent 40%),
+    rgba(16, 22, 20, 0.58);
+  backdrop-filter: blur(3px);
+}
+
+.jade-diary-modal {
+  width: min(100%, 1080px);
+  max-height: min(88vh, 980px);
+  overflow: auto;
+  padding: 36px 42px 38px;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 247, 0.97), rgba(251, 243, 226, 0.92)),
+    url("./assets/backgrounds/ink-right.png") right bottom / cover no-repeat;
+}
+
+.jade-diary-modal::before {
+  pointer-events: none;
+}
+
+.jade-diary-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(174, 128, 62, 0.3);
+}
+
+.jade-diary-header h1 {
+  margin: 0;
+  color: #153d3e;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(2.15rem, 4vw, 3.45rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.1em;
+}
+
+.jade-diary-subtitle {
+  margin: 13px 0 0;
+  color: #7a6040;
+  letter-spacing: 0.1em;
+}
+
+.jade-diary-close {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(174, 128, 62, 0.45);
+  border-radius: 50%;
+  color: #795936;
+  background: rgba(255, 250, 239, 0.76);
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 0.92;
+}
+
+.jade-diary-close:hover,
+.jade-diary-close:focus-visible {
+  color: #9b3028;
+  border-color: rgba(155, 48, 40, 0.48);
+  outline: 2px solid rgba(180, 138, 76, 0.24);
+  outline-offset: 3px;
+}
+
+.jade-diary-intro {
+  margin: 20px 0 0;
+  color: #67533b;
+  line-height: 1.85;
+  letter-spacing: 0.05em;
+}
+
+.jade-diary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.jade-diary-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 152px;
+  padding: 20px 20px 20px 18px;
+  overflow: hidden;
+  border: 1px solid rgba(164, 118, 54, 0.34);
+  color: #433225;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 246, 0.95), rgba(239, 225, 195, 0.9)),
+    repeating-linear-gradient(0deg, transparent 0 23px, rgba(115, 84, 43, 0.05) 23px 24px);
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0.3),
+    0 8px 20px rgba(62, 43, 21, 0.07);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.jade-diary-card::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(177, 133, 72, 0.16);
+  pointer-events: none;
+}
+
+.jade-diary-card:hover,
+.jade-diary-card:focus-visible {
+  border-color: rgba(45, 105, 100, 0.48);
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0.3),
+    0 12px 24px rgba(48, 62, 52, 0.12);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.jade-diary-card.is-locked {
+  border-color: rgba(102, 83, 59, 0.34);
+  background:
+    linear-gradient(31deg, transparent 47%, rgba(89, 66, 42, 0.18) 48% 51%, transparent 52%),
+    linear-gradient(-31deg, transparent 47%, rgba(89, 66, 42, 0.16) 48% 51%, transparent 52%),
+    linear-gradient(135deg, rgba(225, 216, 196, 0.96), rgba(184, 174, 150, 0.9));
+  filter: saturate(0.58);
+}
+
+.jade-diary-card.is-locked::before {
+  content: "封";
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(128, 40, 31, 0.62);
+  border-radius: 50%;
+  color: rgba(128, 40, 31, 0.72);
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.35rem;
+  transform: rotate(-10deg);
+}
+
+.jade-diary-card.is-corrupt {
+  border-color: rgba(121, 25, 22, 0.48);
+  background:
+    radial-gradient(circle at 82% 20%, rgba(137, 13, 10, 0.2), transparent 25%),
+    linear-gradient(135deg, #352b27, #170e0c);
+  color: #ead8bc;
+}
+
+.jade-diary-number {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 62px;
+  border-right: 1px solid rgba(164, 118, 54, 0.34);
+  color: #9a7442;
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-diary-card.is-corrupt .jade-diary-number {
+  color: #b75449;
+  border-color: rgba(167, 50, 41, 0.42);
+}
+
+.jade-diary-card-copy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.jade-diary-card-copy strong {
+  color: inherit;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.jade-diary-card-copy time {
+  color: #866844;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-diary-card-copy small {
+  max-width: 34em;
+  color: #76644f;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.jade-diary-card.is-corrupt time,
+.jade-diary-card.is-corrupt small {
+  color: #b89b81;
+}
+
+.jade-diary-state {
+  position: relative;
+  z-index: 2;
+  align-self: start;
+  min-width: 64px;
+  padding: 6px 9px;
+  border: 1px solid rgba(45, 105, 100, 0.35);
+  color: #255758;
+  background: rgba(235, 245, 239, 0.62);
+  font-size: 0.8rem;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+.jade-diary-card.is-locked .jade-diary-state {
+  border-color: rgba(128, 40, 31, 0.32);
+  color: #863c34;
+  background: rgba(235, 220, 205, 0.72);
+}
+
+.jade-diary-card.is-corrupt .jade-diary-state {
+  border-color: rgba(167, 50, 41, 0.52);
+  color: #e6a097;
+  background: rgba(90, 8, 7, 0.42);
+}
+
+.jade-diary-lock-hint {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(24px, 5vh, 56px);
+  z-index: 110;
+  width: min(calc(100vw - 36px), 720px);
+  min-height: 24px;
+  margin: 0;
+  padding: 10px 18px;
+  border: 1px solid rgba(159, 51, 41, 0.26);
+  color: #9f3329;
+  background: rgba(255, 246, 232, 0.96);
+  box-shadow: 0 10px 24px rgba(50, 29, 14, 0.14);
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.jade-diary-lock-hint.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.jade-diary-paper {
+  width: min(100%, 760px);
+  margin: 28px auto 0;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid rgba(164, 118, 54, 0.32);
+  background:
+    linear-gradient(rgba(255, 251, 239, 0.9), rgba(246, 235, 212, 0.88)),
+    repeating-linear-gradient(0deg, transparent 0 37px, rgba(125, 91, 47, 0.08) 37px 38px);
+  box-shadow:
+    inset 0 0 34px rgba(143, 102, 48, 0.08),
+    0 12px 34px rgba(68, 48, 22, 0.08);
+}
+
+.jade-diary-paper p {
+  margin: 0 0 1.15em;
+  color: #3f3126;
+  font-family: "STSong", "Songti SC", "Noto Serif SC", serif;
+  font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+.jade-diary-paper p:last-child {
+  margin-bottom: 0;
+}
+
+.jade-diary-back {
+  display: block;
+  min-height: 44px;
+  margin: 24px auto 0;
+  padding: 0 28px;
+  border: 1px solid rgba(45, 105, 100, 0.48);
+  color: #f5e5c2;
+  background: linear-gradient(180deg, #315d5d, #193f43);
+  cursor: pointer;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.jade-diary-back:hover,
+.jade-diary-back:focus-visible {
+  filter: brightness(1.08);
+  outline: 2px solid rgba(180, 138, 76, 0.35);
+  outline-offset: 3px;
+}
+
+.jade-diary-red-page {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(76, 4, 4, 0.17), transparent 26%),
+    #030303;
+  cursor: pointer;
+  isolation: isolate;
+  animation: jadeDiaryCorruptIdle 3.4s ease-in-out infinite;
+}
+
+.jade-diary-red-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 4px, rgba(255, 255, 255, 0.012) 4px 5px),
+    radial-gradient(ellipse at center, transparent 34%, rgba(0, 0, 0, 0.72));
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.jade-diary-corrupt-wall,
+.jade-diary-corrupt-title {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 110ms steps(2, end), transform 160ms ease;
+}
+
+.jade-diary-corrupt-wall {
+  z-index: 1;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  color: rgba(196, 16, 12, 0.94);
+  font-family: "STKaiti", "KaiTi", "FZKai-Z03", serif;
+  font-size: clamp(0.74rem, 1.05vw, 0.98rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  word-spacing: 0;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  white-space: normal;
+  text-align: left;
+  text-shadow: 0 0 4px rgba(151, 0, 0, 0.74);
+  transform: none;
+}
+
+.jade-diary-corrupt-title {
+  z-index: 2;
+  display: block;
+  width: min(88vw, 820px);
+  color: #e31918;
+  font-family: "STKaiti", "KaiTi", "FZKai-Z03", serif;
+  font-size: clamp(3.1rem, 9.5vw, 9.2rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    1px 1px 0 rgba(69, 0, 0, 0.94),
+    -2px 0 1px rgba(94, 0, 0, 0.85),
+    0 0 15px rgba(176, 0, 0, 0.72);
+  transform: rotate(-7deg) translateY(8px) scale(0.92);
+}
+
+.jade-diary-red-page.is-revealed {
+  background:
+    radial-gradient(circle at center, rgba(114, 0, 0, 0.26), transparent 28%),
+    #030303;
+  animation: jadeDiaryCorruptReveal 1.3s steps(2, end) infinite;
+}
+
+.jade-diary-red-page.is-revealed .jade-diary-corrupt-wall,
+.jade-diary-red-page.is-revealed .jade-diary-corrupt-title {
+  opacity: 1;
+}
+
+.jade-diary-red-page.is-revealed .jade-diary-corrupt-title {
+  transform: rotate(-7deg) translateY(0) scale(1);
+  animation: jadeDiaryCorruptTitleJolt 1.55s steps(2, end) infinite;
+}
+
+.jade-diary-red-page.is-plain-red,
+.jade-diary-red-page.is-plain-red.is-revealed {
+  background: #a30000;
+  animation: none;
+}
+
+.jade-diary-red-page.is-plain-red::before,
+.jade-diary-red-page.is-plain-red .jade-diary-corrupt-wall,
+.jade-diary-red-page.is-plain-red .jade-diary-corrupt-title {
+  display: none;
+}
+
+.jade-diary-corrupt-title .is-upside-down {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+@keyframes jadeDiaryCorruptIdle {
+  0%,
+  100% {
+    filter: brightness(0.92);
+  }
+
+  50% {
+    filter: brightness(1.05);
+  }
+}
+
+@keyframes jadeDiaryCorruptReveal {
+  0%,
+  100% {
+    filter: brightness(1) contrast(1.02);
+  }
+
+  48% {
+    filter: brightness(0.78) contrast(1.24);
+  }
+
+  51% {
+    filter: brightness(1.18) contrast(1.34);
+  }
+}
+
+@keyframes jadeDiaryCorruptTitleJolt {
+  0%,
+  100% {
+    margin-left: 0;
+  }
+
+  48% {
+    margin-left: -3px;
+  }
+
+  52% {
+    margin-left: 4px;
+  }
+}
+
+#jade-blackout {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(87, 0, 0, 0.34), transparent 24%),
+    #000;
+  animation: jadeBlackoutFlicker 0.22s steps(2, end) infinite;
+}
+
+#jade-blackout[hidden] {
+  display: none;
+}
+
+.blackout-copy {
+  display: grid;
+  gap: 14px;
+  color: #b40000;
+  font-family: "Courier New", "STKaiti", monospace;
+  text-align: center;
+  text-shadow:
+    0 0 8px rgba(255, 0, 0, 0.74),
+    3px 0 0 rgba(56, 0, 0, 0.85);
+}
+
+.blackout-copy span {
+  letter-spacing: 0.32em;
+}
+
+.blackout-copy strong {
+  color: #fa3a2d;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  letter-spacing: 0.12em;
+}
+
+.blackout-copy em {
+  color: #7b0000;
+  font-style: normal;
+  letter-spacing: 0.18em;
+}
+
+@keyframes jadeBlackoutFlicker {
+  0%,
+  100% {
+    opacity: 1;
+    filter: contrast(1.2);
+  }
+
+  42% {
+    opacity: 0.74;
+    filter: contrast(2) brightness(0.72);
+  }
+
+  68% {
+    opacity: 0.92;
+    transform: translateX(1px);
+  }
+}
+
+.jade-inventory-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 86;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255, 241, 210, 0.2), transparent 38%),
+    rgba(14, 22, 20, 0.68);
+  backdrop-filter: blur(4px);
+}
+
+.jade-inventory-modal {
+  width: min(100%, 1180px);
+  max-height: min(92vh, 980px);
+  padding: 34px 38px 38px;
+  overflow: auto;
+  background:
+    linear-gradient(rgba(255, 251, 240, 0.9), rgba(243, 231, 205, 0.93)),
+    url("./assets/backgrounds/ink-right.png") right bottom / cover no-repeat;
+}
+
+.jade-inventory-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 2px 22px;
+  border-bottom: 1px solid rgba(174, 128, 62, 0.32);
+}
+
+.jade-inventory-header h1 {
+  margin: 0;
+  color: #153d3e;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(2.1rem, 4vw, 3.35rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.1em;
+}
+
+.jade-inventory-subtitle {
+  margin: 12px 0 0;
+  color: #7a6040;
+  letter-spacing: 0.1em;
+}
+
+.jade-inventory-close {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(174, 128, 62, 0.45);
+  border-radius: 50%;
+  color: #795936;
+  background: rgba(255, 250, 239, 0.76);
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.jade-inventory-close:hover,
+.jade-inventory-close:focus-visible {
+  color: #9b3028;
+  border-color: rgba(155, 48, 40, 0.48);
+  outline: 2px solid rgba(180, 138, 76, 0.24);
+  outline-offset: 3px;
+}
+
+.jade-inventory-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.jade-inventory-bag,
+.jade-inventory-detail {
+  min-width: 0;
+  border: 1px solid rgba(156, 112, 51, 0.34);
+  box-shadow:
+    inset 0 0 0 5px rgba(255, 255, 255, 0.28),
+    0 12px 30px rgba(61, 43, 23, 0.08);
+}
+
+.jade-inventory-bag {
+  padding: 22px;
+  background:
+    linear-gradient(rgba(69, 55, 38, 0.88), rgba(46, 37, 27, 0.92)),
+    repeating-linear-gradient(90deg, transparent 0 28px, rgba(240, 211, 151, 0.04) 28px 29px);
+}
+
+.jade-inventory-bag-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  color: #e8d6af;
+}
+
+.jade-inventory-bag-heading div {
+  display: grid;
+  gap: 2px;
+}
+
+.jade-inventory-bag-heading span {
+  color: #bca47b;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+}
+
+.jade-inventory-bag-heading strong {
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.jade-inventory-bag-heading small {
+  color: rgba(235, 217, 180, 0.68);
+  letter-spacing: 0.08em;
+}
+
+.jade-inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.jade-inventory-slot {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(92px, 1fr) auto auto;
+  gap: 6px;
+  min-width: 0;
+  min-height: 174px;
+  padding: 9px 9px 10px;
+  overflow: hidden;
+  border: 1px solid rgba(215, 184, 123, 0.28);
+  color: #e8d8b8;
+  background:
+    linear-gradient(rgba(39, 48, 43, 0.72), rgba(25, 31, 29, 0.88)),
+    #202825;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 246, 220, 0.035),
+    0 8px 18px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.jade-inventory-slot:hover,
+.jade-inventory-slot:focus-visible,
+.jade-inventory-slot.is-active {
+  border-color: rgba(224, 191, 119, 0.8);
+  box-shadow:
+    inset 0 0 0 3px rgba(207, 179, 116, 0.1),
+    0 0 0 2px rgba(30, 86, 80, 0.75),
+    0 10px 22px rgba(0, 0, 0, 0.28);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.jade-inventory-slot.is-active::after {
+  content: "查验";
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 2px 6px;
+  color: #f5e4bf;
+  background: #245453;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-inventory-slot-number {
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  z-index: 2;
+  min-width: 26px;
+  color: #d8bd82;
+  font-family: Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.jade-inventory-slot-image {
+  display: block;
+  min-height: 92px;
+  overflow: hidden;
+  border: 1px solid rgba(219, 189, 130, 0.16);
+  background: #b7a17a;
+}
+
+.jade-inventory-slot-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 92px;
+  object-fit: cover;
+  filter: saturate(0.84) sepia(0.08);
+  transition: filter 180ms ease, transform 220ms ease;
+}
+
+.jade-inventory-slot:hover .jade-inventory-slot-image img,
+.jade-inventory-slot:focus-visible .jade-inventory-slot-image img,
+.jade-inventory-slot.is-active .jade-inventory-slot-image img {
+  filter: saturate(0.98);
+  transform: scale(1.035);
+}
+
+.jade-inventory-slot strong {
+  overflow: hidden;
+  color: inherit;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jade-inventory-slot small {
+  color: #bda77f;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-inventory-slot.is-empty {
+  place-items: center;
+  grid-template-rows: 1fr auto;
+  border-style: dashed;
+  color: rgba(224, 204, 165, 0.46);
+  background:
+    radial-gradient(circle, rgba(231, 209, 163, 0.06), transparent 58%),
+    rgba(21, 27, 25, 0.66);
+  cursor: default;
+}
+
+.jade-inventory-slot.is-empty:hover {
+  border-color: rgba(215, 184, 123, 0.28);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 246, 220, 0.035),
+    0 8px 18px rgba(0, 0, 0, 0.18);
+  transform: none;
+}
+
+.jade-inventory-slot.is-empty i {
+  align-self: end;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(224, 204, 165, 0.25);
+  border-radius: 50%;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.15rem;
+  font-style: normal;
+}
+
+.jade-inventory-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  background:
+    linear-gradient(rgba(255, 251, 240, 0.92), rgba(243, 229, 199, 0.88)),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(126, 91, 46, 0.05) 31px 32px);
+}
+
+.jade-inventory-detail-image {
+  order: -1;
+  height: 248px;
+  margin: 0 0 22px;
+  overflow: hidden;
+  border: 1px solid rgba(156, 112, 51, 0.35);
+  background: #d8c6a3;
+}
+
+.jade-inventory-detail-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jade-inventory-detail-copy {
+  display: grid;
+  align-content: start;
+}
+
+.jade-inventory-detail-copy h2 {
+  margin: 0;
+  color: #183f3f;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.jade-recording-links {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.jade-recording-links > .panel-kicker {
+  margin: 0 0 2px;
+}
+
+.jade-recording-link {
+  display: grid;
+  grid-template-columns: 34px 68px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: 1px solid rgba(150, 104, 44, 0.38);
+  color: #49392b;
+  background: rgba(255, 250, 237, 0.74);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.jade-recording-link:hover,
+.jade-recording-link:focus-visible {
+  border-color: rgba(177, 119, 36, 0.8);
+  background: #fff8e7;
+  outline: 2px solid rgba(184, 127, 43, 0.22);
+  outline-offset: 2px;
+  transform: translateX(2px);
+}
+
+.jade-recording-link > span {
+  color: #9d6a24;
+  font-family: Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.jade-recording-link > strong {
+  color: #173f3f;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.jade-recording-link > small {
+  min-width: 0;
+  overflow: hidden;
+  color: #796348;
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jade-inventory-detail-image.is-recording-stone {
+  height: 208px;
+}
+
+.jade-recording-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(5, 7, 7, 0.86);
+  backdrop-filter: blur(5px);
+}
+
+.jade-recording-modal {
+  position: relative;
+  width: min(960px, 96vw);
+  max-height: calc(100vh - 48px);
+  padding: 26px;
+  overflow: auto;
+  border: 1px solid rgba(187, 126, 42, 0.56);
+  color: #e8d6b2;
+  background: #130e0c;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
+}
+
+.jade-recording-modal h2 {
+  margin: 4px 48px 18px 0;
+  color: #f0d8a0;
+  font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  letter-spacing: 0.1em;
+}
+
+.jade-recording-modal .jade-gazette-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.jade-recording-video {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 190px);
+  border: 1px solid rgba(187, 126, 42, 0.38);
+  background: #000;
+  object-fit: contain;
+}
+
+.jade-inventory-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0 0;
+}
+
+.jade-inventory-meta div {
+  padding: 10px 11px;
+  border: 1px solid rgba(164, 118, 54, 0.22);
+  background: rgba(255, 252, 244, 0.54);
+}
+
+.jade-inventory-meta dt {
+  color: #8b6a3f;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.jade-inventory-meta dd {
+  margin: 2px 0 0;
+  color: #3d342a;
+  line-height: 1.5;
+}
+
+.jade-inventory-description {
+  margin: 18px 0 0;
+  color: #4f4032;
+  line-height: 1.95;
+  letter-spacing: 0.035em;
+}
+
+.jade-inventory-detail blockquote {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border: 0;
+  border-left: 3px solid rgba(151, 48, 38, 0.66);
+  background: rgba(140, 47, 37, 0.065);
+}
+
+.jade-inventory-detail blockquote span {
+  color: #91382f;
+  font-family: "STKaiti", "KaiTi", serif;
+  letter-spacing: 0.1em;
+}
+
+.jade-inventory-detail blockquote p {
+  margin: 5px 0 0;
+  color: #594335;
+  line-height: 1.8;
+}
+
+.jade-gazette-read {
+  justify-self: start;
+  margin-top: 18px;
+  padding: 9px 18px;
+  border: 1px solid rgba(143, 57, 44, 0.42);
+  color: #7f342b;
+  background: rgba(255, 247, 228, 0.72);
+  cursor: pointer;
+  font: inherit;
+}
+
+.jade-gazette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(20, 17, 12, 0.62);
+}
+
+.jade-gazette-modal {
+  position: relative;
+  z-index: 121;
+  width: min(760px, 94vw);
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: 34px 42px 30px;
+  background: #f5ead4;
+}
+
+.jade-gazette-modal h2 {
+  margin: 6px 0 24px;
+  color: #183f3f;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.jade-gazette-text p {
+  margin: 0 0 18px;
+  color: #4f4032;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  text-indent: 2em;
+}
+
+.jade-gazette-modal footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(143, 57, 44, 0.28);
+  color: #91382f;
+}
+
+.jade-gazette-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(143, 57, 44, 0.4);
+  border-radius: 50%;
+  color: #7f342b;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.jade-pharmacy-diary-modal .jade-gazette-close {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  float: right;
+  margin-top: -20px;
+  margin-right: -26px;
+  background: #f5ead4;
+}
+
+.jade-diary-entry-list {
+  display: grid;
+  gap: 18px;
+}
+
+.jade-diary-entry-card {
+  padding: 18px 20px;
+  border: 1px solid rgba(156, 112, 51, 0.28);
+  background: rgba(255, 251, 240, 0.58);
+}
+
+.jade-diary-entry-card h3 {
+  margin: 0 0 10px;
+  color: #183f3f;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.35rem;
+}
+
+.jade-diary-entry-card > p:last-child {
+  margin: 0;
+  color: #4f4032;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  text-indent: 2em;
+}
+
+.jade-diary-entry-card > p:nth-last-child(2) {
+  margin: 0;
+  color: #4f4032;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  text-indent: 2em;
+}
+
+.jade-diary-entry-card.is-disturbed {
+  border-left: 3px solid rgba(143, 57, 44, 0.62);
+  background: rgba(140, 47, 37, 0.06);
+}
+
+.jade-diary-entry-card.is-disturbed h3 {
+  color: #7f342b;
+}
+
+.jade-diary-auto-type {
+  min-height: 0;
+  margin-top: 8px;
+  color: #8f2d29;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  word-break: break-all;
+}
+
+.jade-diary-auto-type.is-typing {
+  min-height: 2em;
+}
+
+.jade-diary-auto-type.is-typing::after {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 3px;
+  background: #8f2d29;
+  content: "";
+  vertical-align: -0.12em;
+  animation: jade-diary-caret 0.72s steps(1) infinite;
+}
+
+.jade-diary-auto-type span {
+  display: inline;
+  margin-right: 0.12em;
+}
+
+@keyframes jade-diary-caret {
+  50% { opacity: 0; }
+}
+
+.jade-diary-glitch-text {
+  position: relative;
+  overflow: hidden;
+  min-height: 96px;
+  color: #a22e2e;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  text-indent: 2em;
+  text-shadow: 1px 0 rgba(70, 0, 0, 0.52), -1px 0 rgba(190, 55, 55, 0.38);
+  word-break: break-all;
+}
+
+.jade-diary-glitch-text::before,
+.jade-diary-glitch-text::after {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: #c33a3a;
+  content: attr(data-text);
+  pointer-events: none;
+}
+
+.jade-diary-glitch-text::before {
+  transform: translate(3px, -4px);
+  opacity: 0.52;
+  clip-path: inset(4% 0 62% 0);
+}
+
+.jade-diary-glitch-text::after {
+  transform: translate(-3px, 5px);
+  opacity: 0.42;
+  clip-path: inset(58% 0 8% 0);
+}
+
+.jade-diary-glitch-text span {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.jade-diary-glitch-columns {
+  position: relative;
+  min-height: 290px;
+  overflow: hidden;
+  padding: 12px 8px 18px;
+  color: #8d2d2d;
+  background: rgba(92, 24, 24, 0.04);
+}
+
+.jade-diary-glitch-columns::before {
+  display: block;
+  max-width: 100%;
+  color: #8b3939;
+  content: "不对劲，玄濯不对劲。不对，不对不对不对……他知道我忘了什么。他问我石碑后面藏了什么，我说没有，他却笑了。药柜下面的暗格不能再放了，若有人看见，便把这本也拿走。温师妹，若你真的读到这里，不要去行照堂，不要相信他说的每一句话。";
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  text-indent: 2em;
+}
+
+.jade-diary-glitch-column {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  overflow: hidden;
+  color: #a52b2b;
+  font-size: clamp(9px, 1.05vw, 14px);
+  line-height: 0.72;
+  letter-spacing: -0.08em;
+  word-break: break-all;
+  white-space: normal;
+  opacity: 0.56;
+  mix-blend-mode: multiply;
+  text-shadow: 1px 0 rgba(70, 0, 0, 0.5), -1px 0 rgba(210, 60, 60, 0.42);
+  transform-origin: left center;
+  filter: blur(0.1px);
+}
+
+.jade-diary-glitch-column:nth-child(1) {
+  top: 33%;
+  left: 2%;
+  width: 96%;
+  height: 34px;
+  transform: rotate(-1.2deg) scaleX(1.04);
+  clip-path: inset(2px 5% 5px 0);
+}
+
+.jade-diary-glitch-column:nth-child(2) {
+  top: 43%;
+  left: -5%;
+  width: 90%;
+  height: 48px;
+  transform: rotate(0.8deg) scaleX(1.15);
+  clip-path: inset(0 2% 4px 4%);
+}
+
+.jade-diary-glitch-column:nth-child(3) {
+  top: 47%;
+  left: 18%;
+  width: 70%;
+  height: 54px;
+  transform: rotate(-0.45deg) scaleX(1.22);
+  clip-path: inset(4px 0 8px 0);
+}
+
+.jade-diary-glitch-column:nth-child(4) {
+  top: 56%;
+  left: -8%;
+  width: 112%;
+  height: 31px;
+  transform: rotate(1.7deg) scaleX(0.96);
+  clip-path: inset(0 6% 3px 0);
+}
+
+.jade-diary-glitch-column:nth-child(5) {
+  top: 65%;
+  left: 4%;
+  width: 81%;
+  height: 46px;
+  transform: rotate(-1deg) scaleX(1.12);
+  clip-path: inset(3px 0 0 7%);
+}
+
+.jade-diary-glitch-column:nth-child(6) {
+  top: 71%;
+  left: 27%;
+  width: 76%;
+  height: 38px;
+  transform: rotate(0.55deg) scaleX(1.18);
+  clip-path: inset(0 5% 2px 0);
+}
+
+.jade-diary-glitch-column:nth-child(7) {
+  top: 38%;
+  left: 38%;
+  width: 63%;
+  height: 26px;
+  transform: rotate(-2.1deg) scaleX(1.3);
+  clip-path: inset(0 0 2px 3%);
+  opacity: 0.42;
+}
+
+.jade-diary-glitch-column:nth-child(8) {
+  top: 61%;
+  left: 12%;
+  width: 104%;
+  height: 25px;
+  transform: rotate(2.5deg) scaleX(0.92);
+  clip-path: inset(2px 4% 0 0);
+  opacity: 0.46;
+}
+
+.jade-diary-glitch-column::after {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 8px, rgba(255, 232, 220, 0.3) 9px 10px);
+  content: "";
+  pointer-events: none;
+}
+
+/* Keep the corruption as broken horizontal bands instead of neat columns. */
+.jade-diary-glitch-column {
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+}
+
+.jade-diary-glitch-columns::after {
+  position: absolute;
+  inset: 30% 0 0;
+  z-index: 3;
+  background: linear-gradient(180deg, transparent, rgba(137, 34, 34, 0.05) 35%, rgba(126, 25, 25, 0.18));
+  content: "";
+  pointer-events: none;
+}
+
+/* Legacy declarations below are intentionally superseded by the irregular bands above. */
+.jade-diary-glitch-column {
+  max-height: none;
+  bottom: auto;
+}
+
+/*
+  The overlay text is clipped and skewed independently so neighboring bands
+  overlap without forming a regular grid.
+*/
+.jade-diary-glitch-column:nth-child(odd) {
+  text-shadow: 2px 0 rgba(76, 0, 0, 0.42), -1px 1px rgba(212, 68, 68, 0.35);
+}
+
+.jade-diary-glitch-column:nth-child(even) {
+  text-shadow: -2px 0 rgba(76, 0, 0, 0.42), 1px -1px rgba(212, 68, 68, 0.35);
+}
+
+/* Remove the old vertical-layout rules from the cascade. */
+.jade-diary-glitch-column {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+/* Existing selector is retained for compatibility with older saved markup. */
+.jade-diary-glitch-column::before {
+  content: "";
+}
+
+/* Prevent the old final gradient from reintroducing a straight panel edge. */
+.jade-diary-glitch-columns::before {
+  text-align: left;
+}
+
+/* The following old declarations are neutralized by the rules above. */
+.jade-diary-glitch-column {
+  width: auto;
+}
+
+/* Keep each fragment irregular on narrow screens too. */
+@media (max-width: 600px) {
+  .jade-diary-glitch-columns {
+    min-height: 320px;
+  }
+}
+
+/* Old vertical declarations retained below for source compatibility. */
+.jade-diary-glitch-column {
+  max-height: none;
+  overflow: hidden;
+}
+
+/* Ensure the fragment layer remains above readable text. */
+.jade-diary-glitch-columns > .jade-diary-glitch-column {
+  pointer-events: none;
+}
+
+/* Original declaration block ends here. */
+/*
+  Do not use writing-mode: the reference distortion is horizontal and uneven.
+*/
+.jade-diary-glitch-column {
+  writing-mode: horizontal-tb;
+}
+
+/* Keep the card content from becoming a clean repeated matrix. */
+.jade-diary-glitch-columns > span:nth-child(3n) {
+  letter-spacing: -0.14em;
+}
+
+/* Final color pass for the requested red corruption. */
+.jade-diary-glitch-columns > span {
+  color: #a52b2b;
+}
+
+/* End of irregular glitch styling. */
+/*
+  These declarations intentionally override the previous compact column rules.
+*/
+.jade-diary-glitch-column {
+  text-orientation: mixed;
+}
+
+/* Preserve the base layout height when the modal is narrow. */
+.jade-diary-glitch-columns {
+  contain: layout paint;
+}
+
+/* No uniform vertical tracks. */
+.jade-diary-glitch-columns > span {
+  position: absolute;
+}
+
+/* The old block's remaining selectors are overridden below. */
+.jade-diary-glitch-columns::after {
+  pointer-events: none;
+}
+
+/* Keep the irregular slices visually connected to the readable text. */
+.jade-diary-glitch-columns::before {
+  opacity: 0.95;
+}
+
+/* End overrides. */
+.jade-diary-glitch-column {
+  transform-origin: left center;
+}
+
+/* No additional animation is used. */
+.jade-diary-glitch-columns {
+  animation: none;
+}
+
+/* Final safeguard against vertical stacking. */
+.jade-diary-glitch-column {
+  float: none;
+}
+
+/* The reference uses dense, uneven horizontal corruption. */
+.jade-diary-glitch-columns > span {
+  white-space: normal;
+}
+
+/* End. */
+.jade-diary-glitch-column {
+  inset-inline: auto;
+}
+
+/*
+  Any old inline --column values are ignored; geometry is deliberately varied
+  by the nth-child rules above.
+*/
+.jade-diary-glitch-column {
+  --column: initial;
+}
+
+/* Keep old content hidden outside the card. */
+.jade-diary-glitch-columns {
+  isolation: isolate;
+}
+
+/* Ensure the effect remains legible as corruption rather than a solid block. */
+.jade-diary-glitch-column {
+  background: transparent;
+}
+
+/* Final override for the legacy selector's width. */
+.jade-diary-glitch-column {
+  width: auto;
+}
+
+/* End of replacement cascade. */
+.jade-diary-glitch-column {
+  position: absolute;
+}
+
+/* Keep the effect stable after resize. */
+.jade-diary-glitch-columns {
+  resize: none;
+}
+
+/* Old CSS declarations below are unreachable for the important properties. */
+.jade-diary-glitch-column {
+  bottom: auto;
+}
+
+/* Reference-inspired nonuniform placement. */
+.jade-diary-glitch-columns > span:nth-child(4) { margin-top: 3px; }
+.jade-diary-glitch-columns > span:nth-child(5) { margin-left: 2px; }
+.jade-diary-glitch-columns > span:nth-child(6) { margin-top: -2px; }
+.jade-diary-glitch-columns > span:nth-child(7) { margin-left: -3px; }
+.jade-diary-glitch-columns > span:nth-child(8) { margin-top: 4px; }
+
+/* Keep the readable layer visible through gaps. */
+.jade-diary-glitch-columns::before {
+  pointer-events: none;
+}
+
+/* End of style overrides. */
+.jade-diary-glitch-column {
+  transform-style: flat;
+}
+
+/* No regular grid columns. */
+.jade-diary-glitch-columns > span {
+  min-width: 0;
+}
+
+/* Final compactness tuning. */
+.jade-diary-glitch-column {
+  line-height: 0.72;
+}
+
+.jade-remnant-image-modal {
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.jade-remnant-image-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.jade-remnant-image-figure img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border: 1px solid rgba(143, 57, 44, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.remnant-puzzle-modal {
+  max-width: 90vw;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+.remnant-puzzle-hint {
+  margin: 0 0 20px;
+  color: #6b5a48;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.remnant-puzzle-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  width: min(420px, 80vw);
+  aspect-ratio: 1;
+  margin: 0 auto 24px;
+  padding: 8px;
+  background: rgba(143, 57, 44, 0.08);
+  border: 1px solid rgba(143, 57, 44, 0.25);
+  border-radius: 4px;
+  transition: gap 0.8s ease, padding 0.8s ease;
+}
+
+.remnant-puzzle-board.is-complete {
+  gap: 0;
+  padding: 0;
+  box-shadow: 0 0 30px rgba(184, 145, 80, 0.4), 0 0 60px rgba(184, 145, 80, 0.2);
+}
+
+.puzzle-slot {
+  position: relative;
+  background: rgba(24, 63, 63, 0.06);
+  border: 1px dashed rgba(143, 57, 44, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.puzzle-slot.is-drag-over {
+  border-color: rgba(184, 145, 80, 0.8);
+  background: rgba(184, 145, 80, 0.1);
+}
+
+.puzzle-slot.is-filled {
+  border-style: solid;
+  border-color: rgba(143, 57, 44, 0.3);
+}
+
+.puzzle-slot.is-correct {
+  animation: puzzleGlow 0.6s ease;
+}
+
+@keyframes puzzleGlow {
+  0%, 100% { box-shadow: none; }
+  50% { box-shadow: inset 0 0 20px rgba(184, 145, 80, 0.5); }
+}
+
+.puzzle-placed-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remnant-puzzle-tray {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(24, 63, 63, 0.04);
+  border-radius: 4px;
+  min-height: 100px;
+}
+
+.puzzle-piece {
+  width: 100px;
+  height: 100px;
+  cursor: grab;
+  border: 1px solid rgba(143, 57, 44, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  user-select: none;
+  -webkit-user-drag: element;
+}
+
+.puzzle-piece:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.puzzle-piece.is-dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.puzzle-piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.remnant-puzzle-complete {
+  text-align: center;
+  padding: 20px;
+  margin-top: 16px;
+  border-top: 1px solid rgba(143, 57, 44, 0.2);
+}
+
+.remnant-puzzle-complete h3 {
+  margin: 0 0 10px;
+  color: #8b5a2b;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 1.5rem;
+}
+
+.remnant-puzzle-complete p {
+  margin: 0 0 16px;
+  color: #6b5a48;
+  font-size: 0.95rem;
+}
+
+/* Keep text selection usable. */
+.jade-diary-glitch-columns::before {
+  user-select: text;
+}
+
+/* End. */
+.jade-diary-glitch-column {
+  text-align: left;
+}
+
+/* Ensure the content remains red. */
+.jade-diary-glitch-columns {
+  text-align: left;
+}
+
+/* End replacement. */
+.jade-diary-glitch-column {
+  margin-right: 0;
+}
+
+/* Keep old class working if JS cache serves it. */
+.jade-diary-glitch-columns > span {
+  box-sizing: border-box;
+}
+
+/* End. */
+.jade-diary-glitch-columns {
+  isolation: isolate;
+}
+
+/* Done. */
+.jade-diary-glitch-column {
+  visibility: visible;
+}
+
+/* End. */
+.jade-diary-glitch-column {
+  height: auto;
+}
+
+/* Original old rules are overridden through this point. */
+.jade-diary-glitch-column {
+  min-height: 0;
+}
+
+/* End of irregular layout. */
+.jade-diary-glitch-columns > span {
+  vertical-align: baseline;
+}
+
+/* Ensure no regular column width is restored by a later browser rule. */
+.jade-diary-glitch-column {
+  flex: none;
+}
+
+/* End. */
+.jade-diary-glitch-columns {
+  display: block;
+}
+
+/* End. */
+.jade-diary-glitch-column {
+  opacity: 0.56;
+}
+
+/* End final. */
+.jade-diary-glitch-column {
+  clip-path: none;
+}
+
+/* Reapply individual clips after final reset. */
+.jade-diary-glitch-column:nth-child(1) { clip-path: inset(2px 5% 5px 0); }
+.jade-diary-glitch-column:nth-child(2) { clip-path: inset(0 2% 4px 4%); }
+.jade-diary-glitch-column:nth-child(3) { clip-path: inset(4px 0 8px 0); }
+.jade-diary-glitch-column:nth-child(4) { clip-path: inset(0 6% 3px 0); }
+.jade-diary-glitch-column:nth-child(5) { clip-path: inset(3px 0 0 7%); }
+.jade-diary-glitch-column:nth-child(6) { clip-path: inset(0 5% 2px 0); }
+.jade-diary-glitch-column:nth-child(7) { clip-path: inset(0 0 2px 3%); }
+.jade-diary-glitch-column:nth-child(8) { clip-path: inset(2px 4% 0 0); }
+
+/* End of CSS. */
+  overflow: hidden;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: clamp(6px, 0.72vw, 10px);
+  line-height: 0.62;
+  letter-spacing: -0.18em;
+  word-break: break-all;
+  opacity: 0.78;
+  color: #a52b2b;
+  text-shadow: 1px 0 rgba(70, 0, 0, 0.5), -1px 0 rgba(210, 60, 60, 0.42);
+}
+
+.jade-diary-glitch-column:nth-child(1) { left: 7%; }
+.jade-diary-glitch-column:nth-child(2) { left: 23%; bottom: 4px; }
+.jade-diary-glitch-column:nth-child(3) { left: 39%; bottom: -2px; }
+.jade-diary-glitch-column:nth-child(4) { left: 55%; bottom: 7px; }
+.jade-diary-glitch-column:nth-child(5) { left: 71%; bottom: 1px; }
+
+.jade-diary-glitch-columns::after {
+  position: absolute;
+  inset: 42% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(137, 34, 34, 0.08) 35%, rgba(126, 25, 25, 0.18));
+  content: "";
+  pointer-events: none;
+}
+
+/* Final irregular-glitch pass: readable copy remains visible while broken
+   horizontal fragments overlap it at uneven depths and angles. */
+.jade-diary-glitch-columns {
+  min-height: 300px;
+  padding: 14px 8px 20px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.jade-diary-glitch-columns::before {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 0 2px;
+  content: "不对劲。玄濯不对劲。不对，不对不对不对……他知道我忘了什么。他问我石碑后面藏了什么，我说没有，他却笑了。药柜下面的暗格不能再放了，若有人看见，便把这本也拿走。温师妹，若你真的读到这里，不要去行照堂，不要相信他说的每一句话。玄濯……玄濯不是——";
+  color: #8b3939;
+  font-size: 1rem;
+  line-height: 2;
+  text-align: left;
+  text-indent: 2em;
+  opacity: 0.96;
+}
+
+.jade-diary-glitch-column {
+  z-index: 2;
+  width: auto;
+  max-height: none;
+  overflow: hidden;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  color: #a52b2b;
+  font-size: clamp(9px, 1.05vw, 14px);
+  line-height: 0.72;
+  letter-spacing: -0.08em;
+  word-break: break-all;
+  white-space: normal;
+  opacity: 0.58;
+  mix-blend-mode: multiply;
+  text-shadow: 1px 0 rgba(70, 0, 0, 0.5), -1px 0 rgba(210, 60, 60, 0.42);
+  transform-origin: left center;
+  filter: blur(0.1px);
+}
+
+.jade-diary-glitch-column:nth-child(1) { top: 34%; left: 1%; width: 98%; height: 32px; transform: rotate(-1.4deg) scaleX(1.04); clip-path: inset(2px 5% 5px 0); }
+.jade-diary-glitch-column:nth-child(2) { top: 43%; left: -7%; width: 91%; height: 48px; transform: rotate(0.9deg) scaleX(1.18); clip-path: inset(0 2% 4px 4%); }
+.jade-diary-glitch-column:nth-child(3) { top: 47%; left: 17%; width: 73%; height: 54px; transform: rotate(-0.5deg) scaleX(1.24); clip-path: inset(4px 0 8px 0); }
+.jade-diary-glitch-column:nth-child(4) { top: 56%; left: -9%; width: 114%; height: 30px; transform: rotate(1.8deg) scaleX(0.94); clip-path: inset(0 6% 3px 0); }
+.jade-diary-glitch-column:nth-child(5) { top: 65%; left: 3%; width: 83%; height: 46px; transform: rotate(-1.1deg) scaleX(1.14); clip-path: inset(3px 0 0 7%); }
+.jade-diary-glitch-column:nth-child(6) { top: 72%; left: 26%; width: 77%; height: 38px; transform: rotate(0.7deg) scaleX(1.2); clip-path: inset(0 5% 2px 0); }
+.jade-diary-glitch-column:nth-child(7) { top: 39%; left: 37%; width: 65%; height: 25px; transform: rotate(-2.2deg) scaleX(1.3); clip-path: inset(0 0 2px 3%); opacity: 0.43; }
+.jade-diary-glitch-column:nth-child(8) { top: 61%; left: 10%; width: 106%; height: 24px; transform: rotate(2.6deg) scaleX(0.9); clip-path: inset(2px 4% 0 0); opacity: 0.45; }
+
+.jade-diary-glitch-column::after {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 8px, rgba(255, 232, 220, 0.3) 9px 10px);
+  content: "";
+  pointer-events: none;
+}
+
+.jade-diary-glitch-columns::after {
+  inset: 30% 0 0;
+  z-index: 3;
+  background: linear-gradient(180deg, transparent, rgba(137, 34, 34, 0.05) 35%, rgba(126, 25, 25, 0.18));
+}
+
+@media (max-width: 1060px) {
+  .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .jade-login-panel {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .dashboard-hero,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card-rack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .jade-inventory-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .jade-inventory-detail {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+    gap: 22px;
+  }
+
+  .jade-inventory-detail-image {
+    order: 0;
+    height: 100%;
+    min-height: 280px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header::before {
+    inset: 5px 8px;
+  }
+
+  .header-inner,
+  .jade-main {
+    width: min(calc(100% - 24px), var(--content-width));
+  }
+
+  .header-inner {
+    gap: 14px;
+    padding: 15px 0 18px;
+  }
+
+  .brand-seal {
+    width: 54px;
+    height: 54px;
+  }
+
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-link,
+  .nav-link.is-active {
+    justify-content: center;
+    padding: 9px 10px;
+    text-align: center;
+  }
+
+  .jade-main {
+    padding: 28px 0 48px;
+  }
+
+  .jade-login-panel {
+    padding: 30px 22px;
+  }
+
+  .jade-copy h1 {
+    font-size: clamp(2.4rem, 12vw, 3.3rem);
+  }
+
+  .jade-form {
+    padding: 22px 18px;
+  }
+
+  .dashboard-hero,
+  .dashboard-card-rack,
+  .activity-panel,
+  .side-panel {
+    padding: 22px 18px;
+  }
+
+  .dashboard-avatar {
+    width: 128px;
+    height: 128px;
+  }
+
+  .dashboard-card-rack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-card {
+    min-height: 164px;
+  }
+
+  .activity-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .activity-row time {
+    text-align: left;
+  }
+
+  .record-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .record-stats div + div {
+    border-top: 1px solid rgba(173, 126, 59, 0.22);
+    border-left: 0;
+  }
+
+  .jade-dossier-overlay {
+    padding: 14px;
+    align-items: start;
+  }
+
+  .jade-dossier-modal {
+    max-height: calc(100vh - 28px);
+    padding: 28px 18px 24px;
+  }
+
+  .jade-dossier-header {
+    display: grid;
+  }
+
+  .jade-dossier-stamp {
+    width: 72px;
+    min-height: 72px;
+  }
+
+  .jade-dossier-section {
+    padding: 18px 14px;
+  }
+
+  .jade-dossier-meta,
+  .jade-dossier-timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .jade-dossier-meta div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .jade-chat-overlay {
+    padding: 14px;
+    align-items: start;
+  }
+
+  .jade-chat-modal {
+    max-height: calc(100vh - 28px);
+    padding: 28px 18px 24px;
+  }
+
+  .jade-chat-header {
+    display: grid;
+  }
+
+  .jade-chat-stamp {
+    width: 72px;
+    min-height: 72px;
+  }
+
+  .jade-chat-thread {
+    gap: 12px;
+    min-height: 420px;
+    padding-inline: 0;
+  }
+
+  .jade-chat-row {
+    max-width: 100%;
+  }
+
+  .jade-chat-avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .jade-chat-bubble {
+    padding: 12px 13px;
+  }
+
+  .jade-chat-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .jade-diary-overlay {
+    padding: 14px;
+    align-items: start;
+  }
+
+  .jade-diary-modal {
+    max-height: calc(100vh - 28px);
+    padding: 28px 18px 24px;
+  }
+
+  .jade-diary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jade-diary-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+    min-height: 146px;
+    padding: 18px 16px;
+  }
+
+  .jade-diary-state {
+    grid-column: 2;
+    justify-self: start;
+    align-self: auto;
+  }
+
+  .jade-diary-card.is-locked::before {
+    right: 18px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .jade-diary-paper {
+    padding: 26px 20px;
+  }
+
+  .jade-inventory-overlay {
+    align-items: start;
+    padding: 14px;
+  }
+
+  .jade-inventory-modal {
+    max-height: calc(100vh - 28px);
+    padding: 28px 18px 24px;
+  }
+
+  .jade-inventory-header {
+    gap: 14px;
+  }
+
+  .jade-inventory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .jade-inventory-detail {
+    display: flex;
+  }
+
+  .jade-inventory-detail-image {
+    order: -1;
+    height: 240px;
+    min-height: 0;
+    margin: 0 0 20px;
+  }
+
+  .jade-recording-link {
+    grid-template-columns: 30px 58px minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .jade-recording-overlay {
+    padding: 10px;
+  }
+
+  .jade-recording-modal {
+    width: 100%;
+    max-height: calc(100vh - 20px);
+    padding: 20px 14px 14px;
+  }
+
+  .jade-recording-video {
+    max-height: calc(100vh - 160px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jade-diary-card,
+  .jade-diary-lock-hint,
+  .jade-diary-red-page,
+  .jade-inventory-slot,
+  .jade-inventory-slot-image img {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .jade-chat-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .jade-chat-contact-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .jade-chat-contact {
+    grid-template-columns: 36px minmax(0, 1fr);
+    padding: 8px;
+  }
+
+  .jade-chat-contact-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .jade-chat-contact-copy small,
+  .jade-chat-contact time {
+    display: none;
+  }
+
+  .jade-chat-conversation .jade-chat-thread {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 520px) {
+  .jade-chat-contact-list {
+    grid-template-columns: 1fr;
+  }
+
+  .jade-chat-contact {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .jade-chat-contact-avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .jade-chat-contact-copy small {
+    display: block;
+  }
+}

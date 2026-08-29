@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>咒印 · 识海封印 | 青灯未归</title>
+    <meta name="theme-color" content="#020202" />
+    <link rel="icon" href="./assets/branding/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./seal-puzzle.css?v=20260828e" />
+  </head>
+  <body>
+    <main class="seal-scene" aria-label="识海封印解密场景">
+      <div class="seal-background" aria-hidden="true"></div>
+      <div class="seal-buddha-mask" aria-hidden="true"></div>
+      <img class="seal-buddha" src="./assets/seal-puzzle/佛.png" alt="幽暗佛像" />
+
+      <div class="seal-glyphs" aria-label="寻找四字封印">
+        <button class="seal-glyph" type="button" data-glyph="天" aria-label="隐藏文字：天">天</button>
+        <button class="seal-glyph" type="button" data-glyph="罡" aria-label="隐藏文字：罡">罡</button>
+        <button class="seal-glyph" type="button" data-glyph="镇" aria-label="隐藏文字：镇">镇</button>
+        <button class="seal-glyph" type="button" data-glyph="邪" aria-label="隐藏文字：邪">邪</button>
+      </div>
+
+      <div class="pointer-light" aria-hidden="true"></div>
+      <div class="darkness" aria-hidden="true"></div>
+      <div class="pointer-dot" aria-hidden="true"></div>
+
+      <p class="seal-hint" aria-live="polite">以佛光照见未归之名</p>
+    </main>
+
+    <noscript>此封印需要启用 JavaScript 方可解读。</noscript>
+    <script src="./seal-puzzle.js?v=20260828a"></script>
+  </body>
+</html>

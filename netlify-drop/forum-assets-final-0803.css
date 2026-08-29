@@ -1,0 +1,41 @@
+/* Final, page-scoped asset layer for the Shanmen Tea House forum. */
+html:has(body.forum-assets-final-0803),
+body.forum-assets-final-0803 {
+  background-color: #eee5d2 !important;
+}
+
+body.forum-assets-final-0803 {
+  background-image: url("./assets/tea-room/tea-room-background.png?v=20260803-final") !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed;
+}
+
+body.forum-assets-final-0803 [data-forum-asset="post"],
+body.forum-assets-final-0803 [data-forum-asset="rules"],
+body.forum-assets-final-0803 [data-forum-asset="tags"] {
+  background-color: rgba(250, 245, 231, 0.78) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  border-color: rgba(154, 119, 69, 0.34) !important;
+}
+
+body.forum-assets-final-0803 [data-forum-asset="post"] {
+  background-image: url("./assets/tea-room/forum-post-card.png?v=20260803-final") !important;
+}
+
+body.forum-assets-final-0803 [data-forum-asset="rules"] {
+  background-image: url("./assets/tea-room/forum-rules-board.png?v=20260803-final") !important;
+}
+
+body.forum-assets-final-0803 [data-forum-asset="tags"] {
+  background-image: url("./assets/tea-room/forum-tags-board.png?v=20260803-final") !important;
+}
+
+@media (max-width: 720px) {
+  body.forum-assets-final-0803 {
+    background-attachment: scroll;
+  }
+}

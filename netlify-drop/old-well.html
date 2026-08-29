@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/branding/favicon.svg" type="image/svg+xml" />
+    <title>旧井 | 青灯未归</title>
+    <meta name="description" content="《青灯未归》旧井调查场景。" />
+    <link rel="stylesheet" href="./old-well.css?v=20260828a" />
+  </head>
+  <body class="is-access-pending">
+    <main class="old-well-page">
+      <a class="old-well-back" href="./map.html">返回山门地图</a>
+
+      <div class="old-well-audio-control" data-old-well-audio-control>
+        <button
+          class="old-well-audio-toggle"
+          type="button"
+          data-old-well-audio-toggle
+          aria-label="暂停山钟回响"
+          aria-pressed="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 10v4h4l5 4V6l-5 4H4Zm12.2-2.2a1 1 0 0 0-1.4 1.4 4 4 0 0 1 0 5.6 1 1 0 1 0 1.4 1.4 6 6 0 0 0 0-8.4Zm2.2-2.2a1 1 0 1 0-1.4 1.4 7.1 7.1 0 0 1 0 10 1 1 0 1 0 1.4 1.4 9.1 9.1 0 0 0 0-12.8Z" />
+          </svg>
+          <span class="sr-only">山钟回响音频</span>
+        </button>
+        <label class="old-well-volume" aria-label="调整山钟回响音量">
+          <span class="sr-only">音量</span>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.35"
+            data-old-well-volume
+          />
+        </label>
+        <audio data-old-well-audio preload="auto" loop>
+          <source src="./assets/audio/山钟回响.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <section class="old-well-stage" aria-label="旧井调查场景">
+        <div class="old-well-scene">
+          <img
+            class="old-well-image"
+            data-old-well-image
+            src="./assets/locations/old-well-courtyard.png"
+            alt="月色下的旧井院落"
+          />
+          <button
+            class="old-well-mouth"
+            data-old-well-mouth
+            type="button"
+            aria-label="查看井口"
+          ></button>
+        </div>
+      </section>
+    </main>
+
+    <div class="old-well-pickup" data-old-well-pickup hidden>
+      <div class="old-well-pickup-backdrop" data-pickup-leave></div>
+      <section
+        class="old-well-pickup-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="old-well-pickup-title"
+      >
+        <div class="old-well-pickup-copy">
+          <p>井底拾物</p>
+          <h1 id="old-well-pickup-title">你捡到了一块黑色的石头，是否带走？</h1>
+          <div class="old-well-pickup-actions">
+            <button type="button" data-pickup-take>带走</button>
+            <button type="button" data-pickup-leave>不带走</button>
+          </div>
+        </div>
+        <figure class="old-well-pickup-image">
+          <img src="./assets/items/black-memory-stone.png" alt="石心泛着赤光的黑色石头" />
+        </figure>
+      </section>
+    </div>
+
+    <div class="old-well-story" data-old-well-story hidden>
+      <div class="old-well-story-backdrop"></div>
+      <section
+        class="old-well-story-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="old-well-story-speaker"
+        tabindex="0"
+        data-story-dialog
+      >
+        <button class="old-well-story-close" type="button" aria-label="关闭对话" data-story-close>×</button>
+        <div class="old-well-story-copy">
+          <p class="old-well-story-speaker" id="old-well-story-speaker" data-story-speaker>温照夜</p>
+          <p class="old-well-story-line" data-story-line></p>
+        </div>
+        <div class="old-well-story-choices" data-story-choices hidden>
+          <button type="button" data-story-choice="help">我来助你</button>
+          <button type="button" data-story-choice="leave">溜了溜了</button>
+        </div>
+        <div class="old-well-story-choices" data-shadow-choices hidden>
+          <button type="button" data-shadow-choice="ask">你是谁？</button>
+          <button type="button" data-shadow-choice="challenge">你<span data-shadow-player-name>xxx</span>道爷在此！</button>
+        </div>
+        <div class="old-well-story-choices" data-shadow-offer-choices hidden>
+          <button type="button" data-shadow-offer-choice="join">好啊好啊</button>
+          <button type="button" data-shadow-offer-choice="break">
+            管你这么多！（<span class="is-danger">捏碎魂灯</span>）
+          </button>
+        </div>
+        <div class="old-well-story-choices" data-red-figure-choices hidden>
+          <button type="button" data-red-figure-choice="leave">先走一步</button>
+          <button type="button" data-red-figure-choice="stay">不行，要走一起走</button>
+        </div>
+        <div class="old-well-story-choices" data-ending-three-choice hidden>
+          <button type="button" data-ending-three>查看结局叁</button>
+        </div>
+        <div class="old-well-story-choices" data-ending-four-choice hidden>
+          <button type="button" data-ending-four>查看结局肆</button>
+        </div>
+        <div class="old-well-story-choices" data-ending-six-choice hidden>
+          <button type="button" data-ending-six>查看结局陆</button>
+        </div>
+        <p class="old-well-story-continue" data-story-continue>点击继续</p>
+      </section>
+
+      <section
+        class="old-well-name-entry"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="old-well-name-title"
+        data-name-entry
+        hidden
+      >
+        <p>留名</p>
+        <h2 id="old-well-name-title">请问道友如何称呼？</h2>
+        <form data-name-form>
+          <label class="sr-only" for="old-well-player-name">输入姓名</label>
+          <input
+            id="old-well-player-name"
+            name="playerName"
+            type="text"
+            maxlength="12"
+            autocomplete="off"
+            placeholder="输入姓名"
+            data-name-input
+            required
+          />
+          <button type="submit">确认</button>
+        </form>
+        <p class="old-well-name-error" data-name-error aria-live="polite"></p>
+      </section>
+
+      <section
+        class="old-well-name-entry"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="old-well-real-name-title"
+        data-real-name-entry
+        hidden
+      >
+        <p>封印</p>
+        <h2 id="old-well-real-name-title">请输入邪祟真名</h2>
+        <form data-real-name-form>
+          <label class="sr-only" for="old-well-real-name">输入真名</label>
+          <input
+            id="old-well-real-name"
+            name="realName"
+            type="text"
+            maxlength="20"
+            autocomplete="off"
+            placeholder="输入真名"
+            data-real-name-input
+            required
+          />
+          <button type="submit">确认</button>
+        </form>
+        <p class="old-well-name-error" data-real-name-error aria-live="polite"></p>
+      </section>
+
+      <section
+        class="old-well-name-entry"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="old-well-spell-title"
+        data-spell-entry
+        hidden
+      >
+        <p>结印</p>
+        <h2 id="old-well-spell-title">请输入封印咒印</h2>
+        <form data-spell-form>
+          <label class="sr-only" for="old-well-spell">输入咒印</label>
+          <input
+            id="old-well-spell"
+            name="spell"
+            type="text"
+            maxlength="30"
+            autocomplete="off"
+            placeholder="输入咒印"
+            data-spell-input
+            required
+          />
+          <button type="submit">确认</button>
+        </form>
+        <p class="old-well-name-error" data-spell-error aria-live="polite"></p>
+      </section>
+    </div>
+
+    <div class="old-well-scroll" data-old-well-scroll hidden>
+      <div class="old-well-scroll-backdrop"></div>
+      <section class="old-well-scroll-dialog" role="dialog" aria-modal="true" aria-labelledby="old-well-scroll-title">
+        <figure>
+          <img src="./assets/items/nine-turn-remnant-one.png" alt="九转补天阵残卷一" />
+        </figure>
+        <div class="old-well-scroll-copy">
+          <p>玄濯密藏</p>
+          <h2 id="old-well-scroll-title">九转补天阵残卷一</h2>
+          <button type="button" data-scroll-take>拾取</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="old-well-scroll" data-old-well-remnant-two hidden>
+      <div class="old-well-scroll-backdrop"></div>
+      <section class="old-well-scroll-dialog" role="dialog" aria-modal="true" aria-labelledby="old-well-remnant-two-title">
+        <figure>
+          <img src="./assets/items/remnant-two.png" alt="九转补天阵残卷二" />
+        </figure>
+        <div class="old-well-scroll-copy">
+          <p>沈照微交付</p>
+          <h2 id="old-well-remnant-two-title">九转补天阵残卷二</h2>
+          <button type="button" data-remnant-two-take>拾取</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="old-well-flash" data-old-well-flash hidden aria-hidden="true"></div>
+
+    <div class="old-well-qte" data-old-well-qte hidden>
+      <div class="old-well-qte-backdrop"></div>
+      <section class="old-well-qte-dialog" role="dialog" aria-modal="true" aria-labelledby="old-well-qte-title">
+        <h2 id="old-well-qte-title">快速输入：沈照微</h2>
+        <form data-qte-form>
+          <label class="sr-only" for="old-well-qte-input">输入沈照微</label>
+          <input
+            id="old-well-qte-input"
+            name="qteInput"
+            type="text"
+            autocomplete="off"
+            placeholder="输入沈照微后按回车确认"
+            data-qte-input
+          />
+        </form>
+        <p class="old-well-qte-progress" data-qte-progress>0 / 3</p>
+        <p class="old-well-qte-hint">连续正确输入3次「沈照微」，按回车确认</p>
+      </section>
+    </div>
+
+    <script src="./old-well.js?v=20260828b"></script>
+  </body>
+</html>

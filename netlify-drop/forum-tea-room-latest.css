@@ -1,0 +1,55 @@
+/* Tea Room background overrides. The content and forum interactions remain unchanged. */
+html:has(body.forum-tea-room-latest),
+body.forum-tea-room-latest {
+  background-color: #eee4d1 !important;
+  background-image: url("./assets/tea-room/page-background-1.png?v=20260803") !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+body.forum-tea-room-latest {
+  min-height: 100vh;
+}
+
+body.forum-tea-room-latest::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("./assets/tea-room/page-background-1.png?v=20260803") center top / cover no-repeat;
+}
+
+/* Prevent the previous flat page layer from hiding the supplied landscape. */
+body.forum-tea-room-latest .page-shell,
+body.forum-tea-room-latest .page-container,
+body.forum-tea-room-latest .forum-page,
+body.forum-tea-room-latest .forum-shell,
+body.forum-tea-room-latest .forum-layout,
+body.forum-tea-room-latest .forum-content {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* The intro card is marked by the companion script around the existing heading. */
+body.forum-tea-room-latest [data-tea-room-surface="intro"] {
+  background-color: rgba(250, 246, 235, 0.66) !important;
+  background-image: url("./assets/tea-room/tea-room-background-latest.png?v=20260803") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+@media (max-width: 720px) {
+  html:has(body.forum-tea-room-latest),
+  body.forum-tea-room-latest {
+    background-attachment: scroll !important;
+    background-size: auto 100% !important;
+  }
+
+  body.forum-tea-room-latest::before {
+    background-size: auto 100%;
+  }
+}

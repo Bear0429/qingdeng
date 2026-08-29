@@ -1,0 +1,100 @@
+:root {
+  color-scheme: dark;
+  background: #070503;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #070503;
+}
+
+body.has-poem-preview {
+  overflow: hidden;
+}
+
+.old-pavilion-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #070503;
+}
+
+.old-pavilion-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#old-pavilion-back {
+  position: fixed;
+  z-index: 2;
+  top: clamp(14px, 2.5vw, 30px);
+  right: clamp(14px, 2.5vw, 30px);
+  padding: 11px 18px;
+  border: 1px solid rgba(211, 174, 103, 0.66);
+  border-radius: 3px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.42);
+  color: #f1dfba;
+  background: rgba(8, 14, 13, 0.82);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0.08em;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+#old-pavilion-back:hover,
+#old-pavilion-back:focus-visible {
+  border-color: #e2bb72;
+  background: rgba(18, 45, 43, 0.94);
+  outline: 0;
+}
+
+.poem-preview {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 34px);
+  background: rgba(3, 2, 1, 0.88);
+  backdrop-filter: blur(5px);
+  outline: 0;
+}
+
+.poem-preview img {
+  display: block;
+  width: min(calc(100vw - 68px), calc((100vh - 68px) * 0.8003));
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 68px);
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 640px) {
+  .poem-preview img {
+    width: min(calc(100vw - 24px), calc((100vh - 24px) * 0.8003));
+    max-height: calc(100vh - 24px);
+  }
+
+  #old-pavilion-back {
+    padding: 9px 13px;
+    font-size: 0.82rem;
+  }
+}

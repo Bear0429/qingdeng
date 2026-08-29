@@ -1,0 +1,38 @@
+body.forum-assets-direct-0803 {
+  background: #eee5d2 url("./assets/tea-room/tea-room-background.png?v=20260803-direct") center top / cover no-repeat fixed !important;
+}
+
+body.forum-assets-direct-0803 > main,
+body.forum-assets-direct-0803 > #app,
+body.forum-assets-direct-0803 .forum-page,
+body.forum-assets-direct-0803 .forum-shell,
+body.forum-assets-direct-0803 .forum-layout,
+body.forum-assets-direct-0803 .forum-content {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body.forum-assets-direct-0803 [data-forum-direct="post"],
+body.forum-assets-direct-0803 [data-forum-direct="rules"],
+body.forum-assets-direct-0803 [data-forum-direct="tags"] {
+  background-color: rgba(250, 245, 231, 0.78) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+body.forum-assets-direct-0803 [data-forum-direct="post"] {
+  background-image: url("./assets/tea-room/forum-post-card.png?v=20260803-direct") !important;
+}
+
+body.forum-assets-direct-0803 [data-forum-direct="rules"] {
+  background-image: url("./assets/tea-room/forum-rules-board.png?v=20260803-direct") !important;
+}
+
+body.forum-assets-direct-0803 [data-forum-direct="tags"] {
+  background-image: url("./assets/tea-room/forum-tags-board.png?v=20260803-direct") !important;
+}
+
+@media (max-width: 720px) {
+  body.forum-assets-direct-0803 { background-attachment: scroll; }
+}

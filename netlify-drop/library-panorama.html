@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/branding/favicon.svg" type="image/svg+xml" />
+    <meta name="description" content="《青灯未归》藏经阁全景查阅。" />
+    <title>藏经阁环景查阅 | 青灯未归</title>
+    <link rel="stylesheet" href="./library-panorama.css?v=20260813c" />
+</head>
+  <body>
+<main class="panorama-page">
+      <header class="panorama-header">
+        <a class="panorama-brand" href="./map.html" aria-label="返回山门地图">
+          <span class="panorama-seal">藏</span>
+          <span>
+            <small>青灯未归 · 旧卷调阅</small>
+            <strong>藏经阁环景查阅</strong>
+          </span>
+        </a>
+        <a class="panorama-back" href="./map.html">返回山门地图</a>
+      </header>
+
+      <section class="panorama-stage" aria-label="藏经阁三百六十度全景。拖动鼠标环视，滚轮缩放，点击小木门进入旧阁偏门。">
+        <div class="panorama-vignette" aria-hidden="true"></div>
+        <div class="panorama-note" aria-hidden="true">
+          <span>藏经阁 · 环景调阅</span>
+          <span>拖动环视</span>
+        </div>
+        <div id="panorama-fallback" class="panorama-fallback" tabindex="0">
+          <img src="./assets/panoramas/library-panorama.png" alt="藏经阁全景" />
+          <button id="fallback-door" class="fallback-door" type="button" aria-label="进入旧阁偏门" title="进入旧阁偏门">
+            <span class="sr-only">进入旧阁偏门</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./library-panorama.js?v=20260813c"></script>
+</body>
+</html>

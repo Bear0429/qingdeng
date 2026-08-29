@@ -1,0 +1,108 @@
+.page-audio-control {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  font-family: "STKaiti", "KaiTi", "FangSong", serif;
+  cursor: move;
+  user-select: none;
+}
+
+body.is-cover-active .page-audio-control {
+  display: none !important;
+}
+
+.page-audio-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 12, 11, 0.6);
+  color: #d8c39a;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.page-audio-toggle:hover {
+  color: #fff0cc;
+  background: rgba(184, 135, 65, 0.3);
+}
+
+.page-audio-toggle svg {
+  width: 13px;
+  height: 13px;
+}
+
+.page-audio-volume {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.3s ease, opacity 0.3s ease;
+}
+
+.page-audio-control:hover .page-audio-volume,
+.page-audio-control:focus-within .page-audio-volume {
+  max-width: 80px;
+  opacity: 1;
+}
+
+.page-audio-volume input[type="range"] {
+  width: 60px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(184, 135, 65, 0.3);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.page-audio-volume input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d8c39a;
+  cursor: pointer;
+}
+
+.page-audio-volume input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #d8c39a;
+  cursor: pointer;
+}
+
+.page-audio-control.is-muted .page-audio-toggle {
+  color: rgba(216, 195, 154, 0.4);
+}
+
+@media (max-width: 600px) {
+  .page-audio-control {
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+  }
+
+  .page-audio-volume input[type="range"] {
+    width: 45px;
+  }
+}

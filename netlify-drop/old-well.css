@@ -1,0 +1,926 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: #020303;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+}
+
+body.is-pickup-open {
+  overflow: hidden;
+}
+
+body.is-story-open {
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.is-access-pending .old-well-page {
+  visibility: hidden;
+}
+
+.old-well-page,
+.old-well-stage {
+  width: 100%;
+  min-height: 100dvh;
+}
+
+.old-well-stage {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.old-well-scene {
+  position: relative;
+  width: min(100vw, 150dvh);
+  height: min(100dvh, 66.6667vw);
+  background: #020303;
+}
+
+.old-well-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.old-well-image.is-depth {
+  cursor: default;
+}
+
+.old-well-mouth {
+  position: absolute;
+  top: 48%;
+  left: 29.5%;
+  width: 41%;
+  height: 29%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  outline: 0;
+  appearance: none;
+  background: transparent;
+  box-shadow: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.old-well-mouth:hover,
+.old-well-mouth:focus,
+.old-well-mouth:focus-visible,
+.old-well-mouth:active {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.old-well-back {
+  position: fixed;
+  top: 22px;
+  right: 24px;
+  z-index: 5;
+  padding: 11px 18px;
+  border: 1px solid rgba(190, 153, 84, 0.5);
+  color: #ead9b4;
+  background: rgba(5, 10, 10, 0.78);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(5px);
+}
+
+.old-well-back:hover,
+.old-well-back:focus-visible {
+  color: #fff2ce;
+  border-color: rgba(221, 181, 105, 0.82);
+}
+
+.old-well-audio-control {
+  position: fixed;
+  top: 21px;
+  left: 22px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 3px 8px 3px 4px;
+  border: 1px solid rgba(190, 153, 84, 0.36);
+  background: rgba(5, 10, 10, 0.58);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(5px);
+}
+
+.old-well-audio-toggle {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  margin: 0;
+  padding: 4px;
+  place-items: center;
+  border: 0;
+  color: #e4c58b;
+  background: transparent;
+  cursor: pointer;
+}
+
+.old-well-audio-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  filter: drop-shadow(0 0 5px rgba(220, 180, 98, 0.25));
+}
+
+.old-well-audio-toggle:hover,
+.old-well-audio-toggle:focus-visible {
+  color: #fff0c9;
+  outline: 1px solid rgba(228, 190, 112, 0.72);
+  outline-offset: 2px;
+}
+
+.old-well-audio-control.is-muted .old-well-audio-toggle {
+  color: #927c5a;
+}
+
+.old-well-volume {
+  display: flex;
+  width: 76px;
+  align-items: center;
+}
+
+.old-well-volume input {
+  width: 100%;
+  height: 3px;
+  accent-color: #c9a467;
+  cursor: pointer;
+}
+
+.old-well-audio-control audio {
+  display: none;
+}
+
+.old-well-pickup[hidden] {
+  display: none;
+}
+
+.old-well-pickup {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.old-well-pickup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(5px);
+}
+
+.old-well-pickup-dialog {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(1120px, 94vw);
+  aspect-ratio: 1768 / 896;
+  overflow: hidden;
+  border: 0;
+  background: url("./assets/backgrounds/old-well-pickup-dialog.png") center / 100% 100% no-repeat;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.82);
+  color: #ead7b0;
+}
+
+.old-well-pickup-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 9% 12% 8% 10%;
+  text-align: center;
+}
+
+.old-well-pickup-copy > p {
+  margin: 0 0 18px;
+  color: #a86745;
+  font-size: 0.9rem;
+  letter-spacing: 0.28em;
+}
+
+.old-well-pickup-copy h1 {
+  margin: 0;
+  color: #f0dfbd;
+  font-size: clamp(1.25rem, 2.15vw, 2rem);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.08em;
+}
+
+.old-well-pickup-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.old-well-pickup-actions button {
+  min-width: 110px;
+  padding: 11px 22px;
+  border: 1px solid rgba(187, 133, 61, 0.7);
+  color: #ead7b0;
+  background: rgba(14, 13, 11, 0.78);
+  font: inherit;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+}
+
+.old-well-pickup-actions button:first-child {
+  color: #f3dec0;
+  border-color: #9f382c;
+  background: rgba(91, 18, 13, 0.72);
+}
+
+.old-well-pickup-actions button:hover,
+.old-well-pickup-actions button:focus-visible {
+  outline: 1px solid #e4b86c;
+  outline-offset: 3px;
+}
+
+.old-well-pickup-image {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 8% 10% 8% 9%;
+  place-items: center;
+  background: transparent;
+}
+
+.old-well-pickup-image img {
+  display: block;
+  width: min(66%, 360px);
+  height: auto;
+  max-height: 76%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 22px rgba(139, 17, 10, 0.3));
+}
+
+.old-well-story[hidden],
+.old-well-name-entry[hidden],
+.old-well-story-choices[hidden],
+.old-well-scroll[hidden],
+.old-well-flash[hidden] {
+  display: none;
+}
+
+.old-well-story {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.old-well-story-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(3px);
+}
+
+.old-well-story-dialog {
+  position: absolute;
+  left: 50%;
+  bottom: 5.5vh;
+  width: min(780px, calc(100vw - 48px));
+  height: clamp(280px, 39vh, 330px);
+  overflow: hidden;
+  color: #ead7b0;
+  background: url("./assets/backgrounds/old-well-gal-dialogue.png") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 28px 60px rgba(0, 0, 0, 0.9));
+  outline: 0;
+  transform: translateX(-50%);
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+.old-well-story-copy {
+  position: absolute;
+  inset: 14% 9% 17%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.old-well-story-speaker {
+  margin: 0;
+  color: #d7a55e;
+  font-size: clamp(1.15rem, 2.2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.old-well-story-speaker::after {
+  display: block;
+  width: 3.8em;
+  height: 1px;
+  margin-top: 12px;
+  content: "";
+  background: linear-gradient(90deg, #a66b2c, transparent);
+}
+
+.old-well-story-line {
+  max-width: 88%;
+  margin: 7% 0 0;
+  color: #eee0c4;
+  font-size: clamp(1.15rem, 2.25vw, 2.05rem);
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px #000;
+}
+
+.old-well-story-line .is-danger {
+  color: #d52821;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(203, 18, 13, 0.65);
+}
+
+.old-well-story-speaker:empty {
+  display: none;
+}
+
+.old-well-story-speaker:empty + .old-well-story-line {
+  margin-top: 2%;
+}
+
+.old-well-scroll {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.old-well-scroll-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.84);
+  backdrop-filter: blur(5px);
+}
+
+.old-well-scroll-dialog {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.36fr);
+  width: min(1120px, 94vw);
+  max-height: 90vh;
+  overflow: hidden;
+  border: 1px solid rgba(192, 142, 68, 0.68);
+  color: #ead7b0;
+  background: #0b0907;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.92);
+}
+
+.old-well-scroll-dialog figure {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  background: #030303;
+}
+
+.old-well-scroll-dialog img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.old-well-scroll-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 34px 26px;
+  text-align: center;
+}
+
+.old-well-scroll-copy p {
+  margin: 0 0 12px;
+  color: #a66b2c;
+  letter-spacing: 0.28em;
+}
+
+.old-well-scroll-copy h2 {
+  margin: 0 0 34px;
+  color: #f0dfbd;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.old-well-scroll-copy button {
+  min-width: 128px;
+  padding: 12px 24px;
+  border: 1px solid #c58c3c;
+  color: #f1ddb7;
+  background: rgba(93, 42, 15, 0.72);
+  font: inherit;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+.old-well-scroll-copy button:hover,
+.old-well-scroll-copy button:focus-visible {
+  outline: 1px solid #f0c573;
+  outline-offset: 4px;
+}
+
+.old-well-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  background: #fff;
+}
+
+.old-well-flash.is-active {
+  animation: old-well-flash 420ms ease-out both;
+}
+
+.old-well-flash.is-impact-1,
+.old-well-flash.is-impact-2,
+.old-well-flash.is-impact-3 {
+  background: #f3eadc;
+  animation: old-well-impact-flash 440ms ease-out both;
+}
+
+.old-well-flash.is-impact-2 {
+  background: #fff4e2;
+  animation-duration: 480ms;
+}
+
+.old-well-flash.is-impact-3 {
+  background: #fff;
+  animation-duration: 600ms;
+}
+
+.old-well-image.is-impact-1,
+.old-well-image.is-impact-2,
+.old-well-image.is-impact-3 {
+  animation: old-well-impact-shake 440ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.old-well-image.is-impact-2 {
+  animation-name: old-well-impact-shake-medium;
+  animation-duration: 480ms;
+}
+
+.old-well-image.is-impact-3 {
+  animation-name: old-well-impact-shake-strong;
+  animation-duration: 600ms;
+}
+
+@keyframes old-well-flash {
+  0% { opacity: 0; }
+  18% { opacity: 1; }
+  45% { opacity: 0.92; }
+  100% { opacity: 0; }
+}
+
+@keyframes old-well-impact-flash {
+  0%, 100% { opacity: 0; }
+  8% { opacity: 0.9; }
+  17% { opacity: 0.08; }
+  29% { opacity: 0.72; }
+  46% { opacity: 0.03; }
+  62% { opacity: 0.38; }
+}
+
+@keyframes old-well-impact-shake {
+  0%, 100% { transform: translate(0, 0); }
+  18% { transform: translate(-5px, 2px); }
+  36% { transform: translate(4px, -2px); }
+  58% { transform: translate(-3px, -1px); }
+  76% { transform: translate(2px, 1px); }
+}
+
+@keyframes old-well-impact-shake-medium {
+  0%, 100% { transform: translate(0, 0); }
+  12% { transform: translate(-9px, 4px); }
+  27% { transform: translate(8px, -4px); }
+  43% { transform: translate(-6px, -2px); }
+  61% { transform: translate(5px, 3px); }
+  79% { transform: translate(-3px, 1px); }
+}
+
+@keyframes old-well-impact-shake-strong {
+  0%, 100% { transform: translate(0, 0); filter: none; }
+  9% { transform: translate(-15px, 7px); filter: contrast(1.55); }
+  20% { transform: translate(13px, -6px); }
+  33% { transform: translate(-11px, -4px); }
+  47% { transform: translate(9px, 5px); filter: contrast(1.25); }
+  63% { transform: translate(-7px, 2px); }
+  80% { transform: translate(4px, -2px); filter: none; }
+}
+
+.old-well-story-choices {
+  position: absolute;
+  z-index: 2;
+  left: 9%;
+  right: 9%;
+  bottom: 12%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.old-well-story-choices button {
+  min-height: 52px;
+  padding: 10px 18px;
+  border: 1px solid rgba(201, 151, 75, 0.72);
+  color: #ead7b0;
+  background: rgba(9, 9, 8, 0.86);
+  box-shadow: inset 0 0 24px rgba(145, 86, 30, 0.12);
+  font: inherit;
+  font-size: 1.08rem;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+}
+
+.old-well-story-choices button:hover,
+.old-well-story-choices button:focus-visible {
+  border-color: #efbe6b;
+  outline: 1px solid rgba(239, 190, 107, 0.6);
+  outline-offset: 3px;
+  color: #fff0cd;
+  background: rgba(70, 38, 17, 0.9);
+}
+
+.old-well-story-choices .is-danger {
+  color: #d52821;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(203, 18, 13, 0.58);
+}
+
+.old-well-story-continue {
+  position: absolute;
+  right: 9%;
+  bottom: 12%;
+  margin: 0;
+  color: rgba(223, 188, 126, 0.72);
+  font-size: 0.88rem;
+  letter-spacing: 0.18em;
+  pointer-events: none;
+}
+
+.old-well-story-continue::after {
+  content: "  ▾";
+}
+
+.old-well-story-close {
+  position: absolute;
+  top: 9%;
+  right: 7%;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(195, 145, 67, 0.64);
+  border-radius: 50%;
+  color: #dfbc7d;
+  background: rgba(8, 8, 7, 0.78);
+  font: 300 1.8rem/1 serif;
+  cursor: pointer;
+}
+
+.old-well-story-close:hover,
+.old-well-story-close:focus-visible {
+  outline: 1px solid #e4b86c;
+  outline-offset: 3px;
+}
+
+.old-well-name-entry {
+  position: absolute;
+  z-index: 3;
+  width: min(460px, calc(100vw - 48px));
+  padding: 34px 38px 38px;
+  border: 1px solid rgba(187, 133, 61, 0.78);
+  color: #e8d6b2;
+  background:
+    linear-gradient(rgba(12, 12, 11, 0.96), rgba(8, 8, 8, 0.98)),
+    url("./assets/backgrounds/old-well-gal-dialogue.png") center / cover;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.old-well-name-entry > p:first-child {
+  margin: 0 0 12px;
+  color: #b27a3c;
+  font-size: 0.84rem;
+  letter-spacing: 0.34em;
+}
+
+.old-well-name-entry h2 {
+  margin: 0 0 28px;
+  color: #f0dfbd;
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.old-well-name-entry form {
+  display: flex;
+  gap: 10px;
+}
+
+.old-well-name-entry input {
+  min-width: 0;
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid rgba(184, 138, 74, 0.55);
+  outline: 0;
+  color: #f0dfbd;
+  background: rgba(0, 0, 0, 0.48);
+  font: inherit;
+  letter-spacing: 0.1em;
+  caret-color: auto;
+}
+
+.old-well-name-entry input:focus {
+  border-color: #d9a85e;
+  box-shadow: 0 0 0 2px rgba(171, 113, 44, 0.2);
+}
+
+.old-well-name-entry button {
+  padding: 11px 22px;
+  border: 1px solid rgba(187, 133, 61, 0.75);
+  color: #f1ddb7;
+  background: rgba(87, 41, 19, 0.58);
+  font: inherit;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+}
+
+.old-well-name-error {
+  min-height: 1.4em;
+  margin: 12px 0 -12px;
+  color: #bb4439;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 640px) {
+  .old-well-audio-control {
+    top: 11px;
+    left: 11px;
+    min-height: 32px;
+    padding-right: 6px;
+  }
+
+  .old-well-volume {
+    width: 58px;
+  }
+
+  .old-well-back {
+    top: 12px;
+    right: 12px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  .old-well-pickup {
+    padding: 16px;
+  }
+
+  .old-well-pickup-dialog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(94vw, 560px);
+    min-height: 270px;
+    aspect-ratio: auto;
+  }
+
+  .old-well-pickup-copy {
+    padding: 28px 18px 25px 22px;
+  }
+
+  .old-well-pickup-copy h1 {
+    font-size: clamp(0.92rem, 4vw, 1.18rem);
+    line-height: 1.55;
+  }
+
+  .old-well-pickup-actions {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .old-well-pickup-actions button {
+    min-width: 0;
+    width: 100%;
+    padding: 9px 8px;
+    font-size: 0.84rem;
+  }
+
+  .old-well-pickup-image {
+    padding: 24px 20px 24px 14px;
+  }
+
+  .old-well-pickup-image img {
+    width: 78%;
+  }
+
+  .old-well-story {
+    padding: 12px;
+  }
+
+  .old-well-story-dialog {
+    width: 96vw;
+    min-height: 310px;
+    aspect-ratio: auto;
+  }
+
+  .old-well-story-copy {
+    inset: 18% 11% 19%;
+  }
+
+  .old-well-story-line {
+    max-width: 100%;
+    margin-top: 11%;
+    font-size: clamp(1rem, 4.5vw, 1.28rem);
+    line-height: 1.65;
+  }
+
+  .old-well-story-close {
+    top: 9%;
+    right: 8%;
+    width: 34px;
+    height: 34px;
+    font-size: 1.45rem;
+  }
+
+  .old-well-story-continue {
+    right: 10%;
+    bottom: 12%;
+    font-size: 0.72rem;
+  }
+
+  .old-well-story-choices {
+    left: 11%;
+    right: 11%;
+    bottom: 10%;
+    gap: 10px;
+  }
+
+  .old-well-story-choices button {
+    min-height: 46px;
+    padding: 8px 10px;
+    font-size: 0.94rem;
+  }
+
+  .old-well-name-entry {
+    padding: 28px 22px 30px;
+  }
+
+  .old-well-name-entry form {
+    flex-direction: column;
+  }
+
+  .old-well-scroll {
+    padding: 12px;
+  }
+
+  .old-well-scroll-dialog {
+    grid-template-columns: 1fr;
+    width: min(94vw, 620px);
+    max-height: 94vh;
+    overflow-y: auto;
+  }
+
+  .old-well-scroll-dialog img {
+    max-height: 68vh;
+  }
+
+  .old-well-scroll-copy {
+    padding: 22px 18px 26px;
+  }
+
+  .old-well-scroll-copy h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.old-well-qte {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.old-well-qte[hidden] {
+  display: none;
+}
+
+.old-well-qte-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 4, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.old-well-qte-dialog {
+  position: relative;
+  width: min(92vw, 520px);
+  padding: 40px 36px 36px;
+  background: linear-gradient(180deg, #1a1410 0%, #0f0c09 100%);
+  border: 1px solid rgba(184, 145, 80, 0.45);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7), inset 0 0 60px rgba(184, 145, 80, 0.06);
+  text-align: center;
+}
+
+.old-well-qte-kicker {
+  margin: 0 0 12px;
+  color: #9f8155;
+  font-size: 0.82rem;
+  letter-spacing: 0.26em;
+}
+
+.old-well-qte-dialog h2 {
+  margin: 0 0 28px;
+  color: #ead7ad;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.old-well-qte-dialog form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.old-well-qte-dialog input {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(184, 145, 80, 0.4);
+  color: #ead7ad;
+  font-size: 1.1rem;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.old-well-qte-dialog input:focus {
+  border-color: rgba(184, 145, 80, 0.8);
+}
+
+.old-well-qte-progress {
+  margin: 0 0 12px;
+  color: #c9a96e;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.old-well-qte-hint {
+  margin: 0;
+  color: #7a6548;
+  font-size: 0.85rem;
+}
